@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>斯特靈之心 - 萊姆醬</title>
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+<body>
+    <div class="detail-container">
+        <!-- 當獨立瀏覽時顯示的標題 -->
+        <div class="detail-header">
+            <h1 class="detail-title">斯特靈之心</h1>
+            <p class="detail-subtitle">2015/04/10 ~ 2015/05/01</p>
+            <a href="index.html" class="back-button">← 返回主頁</a>
+        </div>
+
+        <!-- 項目概述 -->
+        <div class="content-section">
+            <p>透過研究RPG遊戲製作大師，使用當年火熱手機遊戲【神魔之塔】之素材以及擴充延伸劇情遊戲：</p>
+        </div>
+
+        <!-- 遊戲內容設計 -->
+        <div class="content-section">
+            <h3 class="section-title">🎮 遊戲內容設計</h3>
+            <ul class="content-list">
+                <li>斯特靈要塞的機偶們在平凡的日子裡，尋求神龍的力量，然而為求神龍的力量，他們得知道神族也正在尋找某些力量，莉莎雖然非常不滿人類建塔去追求神的力量，而非靠自己的努力，然而為了尋找更強大境界的神龍之力，斯特靈的機偶們就此開始登塔。</li>
+                <li>共設計七道封王關卡</li>
+                <li>一個月內共更新了9次，並於第9次更新時，最終迎接遊戲完結(當年神魔之塔尾王為第九封印)。</li>
+            </ul>
+            
+            <!-- 功能截圖畫廊 -->
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="img/tos1.jpg" alt="遊戲畫面">
+                    <div class="image-caption">遊戲畫面</div>
+                </div>
+               <div class="gallery-item">
+                    <img src="img/tos3.jpg" alt="商人">
+                    <div class="image-caption">商人</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/tos2.jpg" alt="BOSS戰畫面">
+                    <div class="image-caption">BOSS戰畫面</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="img/tos4.jpg" alt="戰鬥畫面">
+                    <div class="image-caption">戰鬥畫面</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/tos5.jpg" alt="劇情畫面">
+                    <div class="image-caption">劇情畫面</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 補充說明 -->
+        <div class="content-section">
+            <div class="note-section">
+                <h3>📌 補充說明</h3>
+                <p>此專案屬於非營利性質，僅用於個人學習與社群交流用途，所有個人參與之設計與開發行為不涉及商業或收費行為。</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.content-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>
