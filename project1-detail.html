@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雲空幻想 - 萊姆醬</title>
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+<body>
+    <div class="detail-container">
+        <!-- 當獨立瀏覽時顯示的標題 -->
+        <div class="detail-header">
+            <h1 class="detail-title">雲空幻想</h1>
+            <p class="detail-subtitle">2014/10/01~2018 (約4年)</p>
+            <a href="index.html" class="back-button">← 返回主頁</a>
+        </div>
+
+        <!-- 項目概述 -->
+        <div class="content-section">
+            <p>曾參與一款經典橫向卷軸 MMORPG之非商業伺服器架構與內容設計，涵蓋前端腳本、資料庫設計與遊戲活動開發，並專注於玩家體驗與營運穩定性的優化。主要工作與貢獻如下：</p>
+            
+            <!-- 主要架構圖 -->
+            <img src="https://via.placeholder.com/700x350/4ecdc4/ffffff?text=遊戲伺服器架構圖" alt="遊戲伺服器架構" class="detail-image">
+            <div class="image-caption">伺服器整體架構與資料流程圖</div>
+        </div>
+
+        <!-- 遊戲內容設計 -->
+        <div class="content-section">
+            <h3 class="section-title">🎮 遊戲內容設計</h3>
+            <ul class="content-list">
+                <li>由於營運時間長達四年，累積起來的系統多樣變化</li>
+                <li>伺服器畫分成數個分流：大廳分流、主世界、資源界、副本界、野外分流、小遊戲分流</li>
+                <li>大廳分流：用於阻擋非法流量之分流，進入伺服器服務會進入該分流，並接著轉往其他分流以保護其他分流之流量安全</li>
+                <li>主世界：玩家建立空島家園、參與限時活動、兌換道具之分流</li>
+                <li>資源界：玩家獲得素材之分流，定時重置洗白</li>
+                <li>副本界：玩家透過強化自身裝備與武器，收集怪物素材挑戰BOSS之區域，四年間累積了超15座副本以及關聯獨特主線劇情</li>
+                <li>野外分流：玩家在此分流可以接觸獨特生存模式(礦場收集特殊礦物、製作特殊草藥與槍枝)，持有獵槍前往「雲空大陸」大型開放世界副本狩獵，有別於副本界之戰鬥</li>
+                <li>小遊戲分流：玩家可以在此參加各種自動化小遊戲</li>
+            </ul>
+            
+            <!-- 功能截圖畫廊 -->
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x180/ff6b6b/ffffff?text=NPC+對話系統" alt="NPC對話系統">
+                    <div class="image-caption">NPC對話系統介面</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x180/45b7d1/ffffff?text=活動系統" alt="活動系統">
+                    <div class="image-caption">活動管理後台</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x180/96ceb4/ffffff?text=副本系統" alt="副本系統">
+                    <div class="image-caption">副本設計工具</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 資料庫維護 -->
+        <div class="content-section">
+            <h3 class="section-title">🛠 故事與道具說明設計</h3>
+            <ul class="content-list">
+                <li>我將道具附上非常長的說明，亦就是把故事寫進了道具之中。</li>
+                <li>並透過「本期主打星」免費轉蛋項目，透過活動、副本製造出定期更新的故事劇情釋出。</li>
+                <li>當年(2014年)掀起了一股浪潮引起多家伺服器爭相模仿。</li>
+            </ul>
+            
+            <!-- 物品上故事圖 -->
+            <img src="https://via.placeholder.com/600x300/ffeaa7/2d3436?text=資料庫架構+ER+圖" alt="資料庫架構圖" class="detail-image">
+            <div class="image-caption">玩家資料與活動記錄的資料庫ER圖</div>
+        </div>
+
+        <!-- 補充說明 -->
+        <div class="content-section">
+            <div class="note-section">
+                <h3>📌 補充說明</h3>
+                <p>此專案屬於非營利性質，僅用於個人學習與社群交流用途，所有個人參與之設計與開發行為不涉及商業或收費行為。</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.content-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>

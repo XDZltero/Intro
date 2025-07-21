@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFL-RPG - 萊姆醬</title>
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+<body>
+    <div class="detail-container">
+        <!-- 當獨立瀏覽時顯示的標題 -->
+        <div class="detail-header">
+            <h1 class="detail-title">SFL-RPG</h1>
+            <p class="detail-subtitle">2025/05/19 ~ OnGoing</p>
+            <a href="index.html" class="back-button">← 返回主頁</a>
+        </div>
+
+        <!-- 項目概述 -->
+        <div class="content-section">
+            <p>單人營運開發之網頁文字冒險副本制遊戲，玩家可以透過挑戰副本升等、獲得道具強化卡片解鎖更高難的副本，隨著主線推進解鎖更多主線劇情以及夥伴羈絆</p>
+        </div>
+
+        <!-- 遊戲內容設計 -->
+        <div class="content-section">
+            <h3 class="section-title">🎮 遊戲內容</h3>
+            <ul class="content-list">
+                <li>自動回合制戰鬥，觸發戰鬥後推播戰鬥紀錄，每一場戰鬥冷卻30秒。玩家可以自由搭配裝備卡片以及技能。使用屬性克制、各種流派對應不同關卡。</li>
+                <li>單人副本：副本制，通關後前往下一層直至BOSS關卡，路中被擊敗需從第一層重新開始，可以在同一層滯留刷取素材。</li>
+                <li>多人副本：玩家可與其他兩名玩家進行組隊，並挑戰多人BOSS。BOSS通關冷卻5分鐘，死亡將冷卻1小時。</li>
+                <li>世界王系統：玩家每小時可挑戰一次，星期日為維修日無法挑戰。挑戰世界王可獲得一份基於傷害的經驗值獎勵與挑戰獎勵。</li>
+                
+            </ul>
+            
+            <!-- 功能截圖畫廊 -->
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="img/dungeon.jpg" alt="副本入口介面">
+                    <div class="image-caption">副本入口介面</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/dungeon_layer.jpg" alt="副本戰鬥介面">
+                    <div class="image-caption">單人副本戰鬥介面</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/multi.jpg" alt="多人副本戰鬥介面">
+                    <div class="image-caption">多人副本戰鬥介面</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/world_boss.jpg" alt="世界王介面">
+                    <div class="image-caption">世界王介面</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 資料庫維護 -->
+        <div class="content-section">
+            <h3 class="section-title">🛠 玩家能力值相關系統</h3>
+            <ul class="content-list">
+                <li>卡片系統：透過副本怪物掉落素材製作卡片，強化能力，一次最多裝備五張卡片，自由搭配對應關卡。</li>
+                <li>能力值系統：每升級一級可獲得5點能力值，玩家可透過強化生命基值、攻擊力、幸運值、攻擊速度，強化能力配比出對應關卡的數值。</li>
+                <li>技能系統：每升級一級可獲得3點技能點數，玩家可透過分配不同技能來攻略不同關卡，技能擁有屬性，可克制或被克制怪物能力、技能擁有冷卻以及等待回合，適當安排進行副本攻略。</li>
+                <li>夥伴羈絆系統：玩家可以透過多人副本獲得【羈絆象徵】用來解鎖與強化副本中結識的夥伴，並在單人副本中觸發【場域變因】效果，例如：一次復活機會、經驗值加成、基於血量降低BOSS血量。</li>
+            </ul>
+            
+            <!-- 卡片系統 -->
+            <img src="img/card.jpg" alt="卡片系統" class="detail-image">
+            <div class="image-caption">卡片強化系統</div>
+
+            <!-- 能力值系統 -->
+            <img src="img/stats.jpg" alt="能力值系統" class="detail-image">
+            <div class="image-caption">能力值系統</div>
+
+            <!-- 技能系統 -->
+            <img src="img/skill.jpg" alt="技能系統" class="detail-image">
+            <div class="image-caption">技能系統</div>
+
+            <!-- 夥伴羈絆系統 -->
+            <img src="img/bond.jpg" alt="夥伴羈絆系統" class="detail-image">
+            <div class="image-caption">夥伴羈絆系統</div>
+            
+        </div>
+
+        <!-- 補充說明 -->
+        <div class="content-section">
+            <div class="note-section">
+                <h3>📌 補充說明</h3>
+                <p>此專案屬於非營利性質，僅用於個人學習與社群交流用途，所有個人參與之設計與開發行為不涉及商業或收費行為。</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.content-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>

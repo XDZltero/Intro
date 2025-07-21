@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Bot - 萊姆醬</title>
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+<body>
+    <div class="detail-container">
+        <!-- 當獨立瀏覽時顯示的標題 -->
+        <div class="detail-header">
+            <h1 class="detail-title">Discord Bot</h1>
+            <p class="detail-subtitle">2025/5/6 ~ OnGoing</p>
+            <a href="index.html" class="back-button">← 返回主頁</a>
+        </div>
+
+        <!-- 項目概述 -->
+        <div class="content-section">
+            <p>設計三隻機器人用來推播各式訊息以及指令操作。機器人如下：</p>
+            <p>萬葉機器人與納西妲機器人使用Python語言為主要語言進行撰寫，並以 Github Action 與 Github Gist 作為資料觸發更新與資料儲存方法。</p>
+            <p>小圈圈內鬼推播機器人同樣使用Python語言為主要語言進行撰寫，但以 Railway 與 Github Gist 作為資料觸發更新與資料儲存方法。</p>
+            
+            
+            <!-- KazuBot -->
+            <img src="img/kazubot.jpg" alt="kazubot" class="detail-image">
+            <div class="image-caption">萬葉機器人</div>
+            <p>負責每3分鐘爬蟲一次米哈遊Youtube官方頻道，並進行推播最新影片資訊。</p>
+
+            <!-- nahidabot -->
+            <img src="img/nahidabot.jpg" alt="nahidabot" class="detail-image">
+            <div class="image-caption">納西妲機器人</div>
+            <p>Discord伺服器管理機器人，可即時建立回應圖片指令以及自動推播生日慶祝賀圖等。</p>
+
+            <!--  telegram bot -->
+            <img src="img/telegrambot.jpg" alt="telegrambot" class="detail-image">
+            <div class="image-caption">小圈圈內鬼推播機器人</div>
+            <p>自動爬蟲 Telegram頻道消息推播至 Discord伺服器中。</p>
+        </div>
+
+        <!-- 補充說明 -->
+        <div class="content-section">
+            <div class="note-section">
+                <h3>📌 補充說明</h3>
+                <p>此專案屬於非營利性質，僅用於個人學習與社群交流用途，所有個人參與之設計與開發行為不涉及商業或收費行為。</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.content-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>
