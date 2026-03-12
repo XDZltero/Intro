@@ -3,144 +3,262 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" />
 <title>換行轉 \n 工具</title>
+<link rel="stylesheet" href="css/main.css">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #1a1a2e;
-    color: #e0e0e0;
-    min-height: 100vh;
-    padding: 24px;
-  }
-  h1 {
-    text-align: center;
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-    color: #a78bfa;
-    letter-spacing: 2px;
-  }
-  .container {
+  .tool-container {
     max-width: 860px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    padding: 120px 20px 40px;
   }
+
+  .tool-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: var(--accent-color);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+    animation: fadeInUp 1s ease-out, titlePulse 3s infinite alternate;
+  }
+
+  .tool-panel {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--border-radius-lg);
+    padding: 30px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+  }
+
+  .tool-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  }
+
   .area-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
   }
-  label {
-    font-size: 0.85rem;
-    color: #a0a0c0;
+
+  .area-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
   }
+
   textarea {
     width: 100%;
-    height: 240px;
-    background: #16213e;
-    border: 1px solid #2d2d5e;
-    border-radius: 10px;
-    color: #e0e0e0;
+    height: 220px;
+    background: rgba(10, 10, 30, 0.6);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    color: var(--text-primary);
     font-size: 0.95rem;
     padding: 14px;
     resize: vertical;
     outline: none;
     font-family: 'Consolas', 'Courier New', monospace;
     line-height: 1.6;
-    transition: border-color 0.2s;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
-  textarea:focus { border-color: #7c3aed; }
+
+  textarea:focus {
+    border-color: rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.15);
+  }
+
+  textarea#output {
+    color: #86efac;
+    background: rgba(5, 5, 20, 0.7);
+    height: 180px;
+  }
+
   .btn-row {
     display: flex;
-    gap: 12px;
+    gap: 14px;
     justify-content: center;
+    margin: 24px 0;
   }
-  button {
+
+  .tool-btn {
+    position: relative;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.15) 0%, rgba(139, 92, 246, 0.08) 100%);
+    border: 2px solid rgba(0, 255, 255, 0.5);
     padding: 10px 28px;
-    border-radius: 8px;
-    border: none;
+    border-radius: 12px;
+    color: #00ffff;
+    font-family: 'Orbitron', sans-serif;
     font-size: 0.95rem;
+    font-weight: 700;
     cursor: pointer;
-    font-weight: 600;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+    overflow: hidden;
   }
-  #convertBtn {
-    background: #7c3aed;
-    color: #fff;
+
+  .tool-btn:hover {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.25) 0%, rgba(139, 92, 246, 0.15) 100%);
+    border-color: rgba(0, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 255, 255, 0.2);
   }
-  #convertBtn:hover { background: #6d28d9; transform: translateY(-1px); }
-  #clearBtn {
-    background: #2d2d5e;
-    color: #a0a0c0;
+
+  .tool-btn.secondary {
+    border-color: rgba(139, 92, 246, 0.5);
+    color: #8b5cf6;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
   }
-  #clearBtn:hover { background: #3d3d7e; }
+
+  .tool-btn.secondary:hover {
+    border-color: rgba(139, 92, 246, 0.8);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%);
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
+  }
+
   .copy-btn {
-    background: #1e3a5f;
-    color: #93c5fd;
-    padding: 6px 18px;
-    font-size: 0.85rem;
-    border-radius: 6px;
-    border: 1px solid #3b82f6;
+    position: relative;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 255, 255, 0.05) 100%);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: var(--accent-color);
+    padding: 5px 14px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
   }
-  .copy-btn:hover { background: #1e4a7f; }
+
+  .copy-btn:hover {
+    background: rgba(0, 255, 255, 0.15);
+    border-color: rgba(0, 255, 255, 0.6);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  }
+
   .copy-btn.copied {
-    background: #065f46;
+    background: rgba(16, 185, 129, 0.15);
     color: #6ee7b7;
-    border-color: #059669;
+    border-color: rgba(16, 185, 129, 0.5);
   }
-  #output {
-    width: 100%;
-    height: 180px;
-    background: #0f172a;
-    border: 1px solid #2d2d5e;
-    border-radius: 10px;
-    color: #86efac;
-    font-size: 0.9rem;
-    padding: 14px;
-    resize: vertical;
-    outline: none;
-    font-family: 'Consolas', 'Courier New', monospace;
-    line-height: 1.6;
-    word-break: break-all;
-  }
+
   .stats {
-    font-size: 0.78rem;
-    color: #555580;
+    font-size: 0.8rem;
+    color: var(--text-muted);
     text-align: right;
+    margin-top: 8px;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  @media (max-width: 768px) {
+    .tool-container {
+      padding: 100px 12px 30px;
+    }
+
+    .tool-title {
+      font-size: 1.3rem;
+    }
+
+    .tool-panel {
+      padding: 18px;
+    }
+
+    textarea {
+      height: 180px;
+      font-size: 0.85rem;
+    }
+
+    textarea#output {
+      height: 140px;
+    }
+
+    .btn-row {
+      gap: 10px;
+    }
+
+    .tool-btn {
+      padding: 8px 20px;
+      font-size: 0.85rem;
+    }
   }
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>📋 換行 → \n 轉換器</h1>
-
-  <div>
-    <div class="area-header">
-      <label>輸入文字（可多行、無上限）</label>
-      <button class="copy-btn" id="copyInputBtn">📋 複製原文</button>
+    <div class="floating-elements">
+        <div class="floating-element" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+        <div class="floating-element" style="top: 20%; left: 80%; animation-delay: 1s;"></div>
+        <div class="floating-element" style="top: 60%; left: 20%; animation-delay: 2s;"></div>
+        <div class="floating-element" style="top: 80%; left: 70%; animation-delay: 3s;"></div>
     </div>
-    <textarea id="input" placeholder="在這裡貼上你的文字…"></textarea>
-  </div>
 
-  <div class="btn-row">
-    <button id="convertBtn">⚡ 轉換</button>
-    <button id="clearBtn">🗑 清除</button>
-  </div>
+    <header>
+        <nav>
+            <div class="logo">關於 萊姆醬</div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">主頁</a>
+                </li>
+                <li class="nav-item nav-dropdown">
+                    <span class="nav-link active">個人工具</span>
+                    <div class="dropdown-menu">
+                        <a href="tool.html" class="dropdown-item">換行轉換器</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-  <div>
-    <div class="area-header">
-      <label>輸出結果</label>
-      <button class="copy-btn" id="copyOutputBtn">📋 複製結果</button>
+    <!-- Scroll Buttons -->
+    <div class="scroll-buttons">
+        <button class="scroll-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部">&#9650;</button>
+        <button class="scroll-btn" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})" title="前往底部">&#9660;</button>
     </div>
-    <textarea id="output" readonly placeholder="轉換結果會顯示在這裡…"></textarea>
-    <div class="stats" id="stats"></div>
-  </div>
-</div>
+
+    <div class="tool-container">
+        <h1 class="tool-title">換行 → \n 轉換器</h1>
+
+        <div class="tool-panel">
+            <div class="area-header">
+                <span class="area-label">輸入文字（可多行）</span>
+                <button class="copy-btn" id="copyInputBtn">複製原文</button>
+            </div>
+            <textarea id="input" placeholder="在這裡貼上你的文字…"></textarea>
+        </div>
+
+        <div class="btn-row">
+            <button class="tool-btn" id="convertBtn">轉換</button>
+            <button class="tool-btn secondary" id="clearBtn">清除</button>
+        </div>
+
+        <div class="tool-panel">
+            <div class="area-header">
+                <span class="area-label">輸出結果</span>
+                <button class="copy-btn" id="copyOutputBtn">複製結果</button>
+            </div>
+            <textarea id="output" readonly placeholder="轉換結果會顯示在這裡…"></textarea>
+            <div class="stats" id="stats"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 關於萊姆醬. All rights reserved.</p>
+    </footer>
 
 <script>
   document.getElementById('convertBtn').addEventListener('click', convert);
@@ -171,10 +289,10 @@
     if (!val) return;
     navigator.clipboard.writeText(val).then(() => {
       const btn = document.getElementById(btnId);
-      btn.textContent = '✅ 已複製！';
+      btn.textContent = '已複製';
       btn.classList.add('copied');
       setTimeout(() => {
-        btn.textContent = '📋 ' + label;
+        btn.textContent = label;
         btn.classList.remove('copied');
       }, 2000);
     });

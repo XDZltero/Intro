@@ -71,6 +71,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
@@ -80,6 +82,141 @@ nav {
     color: var(--accent-color);
     text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
     animation: titlePulse 3s infinite alternate;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: block;
+    padding: 8px 18px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-color);
+    background: rgba(0, 255, 255, 0.08);
+    border-color: rgba(0, 255, 255, 0.3);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown .nav-link {
+    cursor: pointer;
+}
+
+.nav-dropdown .nav-link::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    margin-left: 6px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .nav-link::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 180px;
+    background: rgba(15, 15, 35, 0.95);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 255, 255, 0.1);
+    z-index: 1001;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    color: var(--accent-color);
+    background: rgba(0, 255, 255, 0.1);
+    padding-left: 18px;
+}
+
+/* Scroll Buttons */
+.scroll-buttons {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+}
+
+.scroll-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 255, 255, 0.4);
+    background: rgba(15, 15, 35, 0.85);
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+}
+
+.scroll-btn:hover {
+    background: rgba(0, 255, 255, 0.15);
+    border-color: rgba(0, 255, 255, 0.7);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.35);
+    transform: translateY(-2px);
 }
 
 @keyframes titlePulse {
@@ -310,29 +447,34 @@ nav {
     justify-content: center;
     min-width: 65px;
     padding: 6px 14px;
-    border-radius: var(--border-radius-pill);
+    border-radius: 10px;
     font-size: 0.85rem;
     font-weight: 700;
     text-align: center;
     transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 10px currentColor;
 }
 
 .skill-level.excellent .skill-badge {
-    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-    color: white;
-    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.15) 0%, rgba(255, 142, 83, 0.08) 100%);
+    border: 2px solid rgba(255, 107, 107, 0.5);
+    color: #ff6b6b;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
 }
 
 .skill-level.good .skill-badge {
-    background: linear-gradient(135deg, #12c2e9, #0099cc);
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.15) 0%, rgba(0, 153, 204, 0.08) 100%);
+    border: 2px solid rgba(0, 255, 255, 0.5);
+    color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
 }
 
 .skill-level.basic .skill-badge {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(118, 75, 162, 0.08) 100%);
+    border: 2px solid rgba(139, 92, 246, 0.5);
+    color: #8b5cf6;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
 }
 
 .skill-badge:hover {
@@ -530,19 +672,22 @@ nav {
 }
 
 .detail-button {
-    background: var(--btn-gradient);
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: var(--border-radius-pill);
-    cursor: pointer;
-    font-size: 1rem;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    transition: all 0.3s ease;
     position: relative;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.15) 0%, rgba(139, 92, 246, 0.08) 100%);
+    border: 2px solid rgba(0, 255, 255, 0.5);
+    padding: 12px 30px;
+    border-radius: 12px;
+    color: #00ffff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .detail-button::before {
@@ -552,7 +697,7 @@ nav {
     left: -100%;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.15), transparent);
     transition: left 0.5s ease;
 }
 
@@ -561,8 +706,11 @@ nav {
 }
 
 .detail-button:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.25) 0%, rgba(139, 92, 246, 0.15) 100%);
+    border-color: rgba(0, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 255, 255, 0.2);
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
 }
 
 .detail-button:active {
@@ -796,7 +944,6 @@ body::-webkit-scrollbar-track {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* 移動設備性能優化 */
     body::before {
         animation: none;
         opacity: 0.5;
@@ -804,6 +951,28 @@ body::-webkit-scrollbar-track {
 
     .profile-section::before {
         animation: none;
+    }
+
+    nav {
+        padding: 0.8rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .nav-menu {
+        gap: 4px;
+    }
+
+    .nav-link {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+
+    .dropdown-menu {
+        right: -10px;
+        min-width: 150px;
     }
 
     .profile-content {
@@ -819,7 +988,15 @@ body::-webkit-scrollbar-track {
     }
 
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
     }
 
     .projects-grid {
@@ -880,6 +1057,35 @@ body::-webkit-scrollbar-track {
         width: 35px;
         height: 35px;
         font-size: 1.2rem;
+    }
+
+    .scroll-buttons {
+        bottom: 16px;
+        right: 16px;
+        gap: 8px;
+    }
+
+    .scroll-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+
+    .profile-section {
+        padding: 40px 0;
+        margin: 20px 0;
+    }
+
+    .projects-section {
+        padding: 40px 0;
+    }
+
+    .info-card {
+        padding: 18px;
+    }
+
+    .profile-info h2 {
+        font-size: 1.8rem;
     }
 }
 
