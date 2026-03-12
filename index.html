@@ -227,7 +227,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 關於萊姆醬. All rights reserved.</p>
+        <p>&copy; <span id="footerYear"></span> 關於萊姆醬. All rights reserved.</p>
     </footer>
 
     <script>
@@ -432,6 +432,20 @@
 
         // Create floating elements periodically
         setInterval(createFloatingElement, 2000);
+
+        // Footer 年份自動更新
+        document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+        // 下拉選單點擊觸發（手機友善）
+        document.querySelectorAll('.nav-dropdown .nav-link').forEach(link => {
+            link.addEventListener('click', e => {
+                e.stopPropagation();
+                link.closest('.nav-dropdown').classList.toggle('open');
+            });
+        });
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+        });
 
         // 禁止右鍵與長按複製
         document.addEventListener('contextmenu', e => e.preventDefault());
