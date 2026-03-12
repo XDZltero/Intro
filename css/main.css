@@ -27,6 +27,11 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: #0a0a0a;
+    overscroll-behavior: none;
+}
+
 body {
     font-family: 'Orbitron', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
     background: var(--primary-bg);
@@ -34,6 +39,7 @@ body {
     line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
+    overscroll-behavior: none;
 }
 
 /* 背景效果 */
