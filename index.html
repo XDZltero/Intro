@@ -432,6 +432,11 @@
 
         // Create floating elements periodically
         setInterval(createFloatingElement, 2000);
+
+        // 禁止右鍵與長按複製
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('selectstart', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
     </script>
 </body>
 </html>
