@@ -298,6 +298,17 @@
     document.getElementById('stats').textContent = '';
   }
 
+  // 禁止右鍵與長按複製（textarea 除外）
+  document.addEventListener('contextmenu', e => {
+    if (e.target.tagName !== 'TEXTAREA') e.preventDefault();
+  });
+  document.addEventListener('selectstart', e => {
+    if (e.target.tagName !== 'TEXTAREA') e.preventDefault();
+  });
+  document.addEventListener('copy', e => {
+    if (document.activeElement.tagName !== 'TEXTAREA') e.preventDefault();
+  });
+
   function copyText(targetId, btnId) {
     const val = document.getElementById(targetId).value;
     if (!val) return;
