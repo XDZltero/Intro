@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>換行轉 \n 工具</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #1a1a2e;
+    color: #e0e0e0;
+    min-height: 100vh;
+    padding: 24px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #a78bfa;
+    letter-spacing: 2px;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .area-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+  label {
+    font-size: 0.85rem;
+    color: #a0a0c0;
+  }
+  textarea {
+    width: 100%;
+    height: 240px;
+    background: #16213e;
+    border: 1px solid #2d2d5e;
+    border-radius: 10px;
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    padding: 14px;
+    resize: vertical;
+    outline: none;
+    font-family: 'Consolas', 'Courier New', monospace;
+    line-height: 1.6;
+    transition: border-color 0.2s;
+  }
+  textarea:focus { border-color: #7c3aed; }
+  .btn-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+  button {
+    padding: 10px 28px;
+    border-radius: 8px;
+    border: none;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  #convertBtn {
+    background: #7c3aed;
+    color: #fff;
+  }
+  #convertBtn:hover { background: #6d28d9; transform: translateY(-1px); }
+  #clearBtn {
+    background: #2d2d5e;
+    color: #a0a0c0;
+  }
+  #clearBtn:hover { background: #3d3d7e; }
+  .copy-btn {
+    background: #1e3a5f;
+    color: #93c5fd;
+    padding: 6px 18px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    border: 1px solid #3b82f6;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .copy-btn:hover { background: #1e4a7f; }
+  .copy-btn.copied {
+    background: #065f46;
+    color: #6ee7b7;
+    border-color: #059669;
+  }
+  #output {
+    width: 100%;
+    height: 180px;
+    background: #0f172a;
+    border: 1px solid #2d2d5e;
+    border-radius: 10px;
+    color: #86efac;
+    font-size: 0.9rem;
+    padding: 14px;
+    resize: vertical;
+    outline: none;
+    font-family: 'Consolas', 'Courier New', monospace;
+    line-height: 1.6;
+    word-break: break-all;
+  }
+  .stats {
+    font-size: 0.78rem;
+    color: #555580;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📋 換行 → \n 轉換器</h1>
+
+  <div>
+    <div class="area-header">
+      <label>輸入文字（可多行、無上限）</label>
+      <button class="copy-btn" id="copyInputBtn">📋 複製原文</button>
+    </div>
+    <textarea id="input" placeholder="在這裡貼上你的文字…"></textarea>
+  </div>
+
+  <div class="btn-row">
+    <button id="convertBtn">⚡ 轉換</button>
+    <button id="clearBtn">🗑 清除</button>
+  </div>
+
+  <div>
+    <div class="area-header">
+      <label>輸出結果</label>
+      <button class="copy-btn" id="copyOutputBtn">📋 複製結果</button>
+    </div>
+    <textarea id="output" readonly placeholder="轉換結果會顯示在這裡…"></textarea>
+    <div class="stats" id="stats"></div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('convertBtn').addEventListener('click', convert);
+  document.getElementById('clearBtn').addEventListener('click', clearAll);
+  document.getElementById('copyInputBtn').addEventListener('click', () => copyText('input', 'copyInputBtn', '複製原文'));
+  document.getElementById('copyOutputBtn').addEventListener('click', () => copyText('output', 'copyOutputBtn', '複製結果'));
+  document.getElementById('input').addEventListener('keydown', e => {
+    if (e.ctrlKey && e.key === 'Enter') convert();
+  });
+
+  function convert() {
+    const input = document.getElementById('input').value;
+    if (!input) return;
+    const result = input.replace(/\r\n|\r|\n/g, '\\n');
+    document.getElementById('output').value = result;
+    const lineCount = input.split(/\r\n|\r|\n/).length;
+    document.getElementById('stats').textContent = `共 ${lineCount} 行，替換了 ${lineCount - 1} 個換行`;
+  }
+
+  function clearAll() {
+    document.getElementById('input').value = '';
+    document.getElementById('output').value = '';
+    document.getElementById('stats').textContent = '';
+  }
+
+  function copyText(targetId, btnId, label) {
+    const val = document.getElementById(targetId).value;
+    if (!val) return;
+    navigator.clipboard.writeText(val).then(() => {
+      const btn = document.getElementById(btnId);
+      btn.textContent = '✅ 已複製！';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 ' + label;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
