@@ -1,14 +1,50 @@
-/* project-detail.css - 詳細頁面專用樣式 */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+/* project-detail.css - SFL 風格詳細頁面專用樣式 */
+
+/* SFL 風格 CSS 變量 */
+:root {
+    --primary-bg: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    --accent-color: #00ffff;
+    --accent-secondary: #ffd93d;
+    --action-color: #ff6b6b;
+    --panel-bg: rgba(15, 15, 35, 0.85);
+    --panel-border: rgba(0, 255, 255, 0.2);
+    --text-primary: #ffffff;
+    --text-secondary: #b8e6ff;
+    --text-muted: rgba(255, 255, 255, 0.7);
+    --btn-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.4);
+    --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.5);
+    --border-radius-sm: 6px;
+    --border-radius-md: 15px;
+    --border-radius-lg: 20px;
+    --border-radius-pill: 25px;
+}
 
 /* 基礎設定 */
 body {
-    font-family: 'Microsoft JhengHei', 'PingFang TC', 'Noto Sans TC', sans-serif;
-    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-    color: #ffffff;
+    font-family: 'Orbitron', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+    background: var(--primary-bg);
+    color: var(--text-primary);
     line-height: 1.7;
     margin: 0;
     padding: 20px;
     min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 背景效果 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 50% 50%,
+        rgba(120, 119, 198, 0.15) 0%,
+        transparent 60%);
+    z-index: -2;
+    will-change: transform;
 }
 
 /* 內容容器 */
@@ -16,11 +52,30 @@ body {
     max-width: 900px;
     margin: 0 auto;
     padding: 40px 30px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: var(--panel-bg);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--panel-border);
+    box-shadow: var(--shadow-heavy);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 容器閃光效果 */
+.detail-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(45deg,
+        transparent 40%,
+        rgba(0, 255, 255, 0.03) 50%,
+        transparent 60%);
+    animation: sectionShine 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes sectionShine {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
 }
 
 /* 標題樣式 */
@@ -28,21 +83,27 @@ body {
     text-align: center;
     margin-bottom: 40px;
     padding-bottom: 30px;
-    border-bottom: 2px solid rgba(78, 205, 196, 0.3);
+    border-bottom: 2px solid var(--panel-border);
 }
 
 .detail-title {
     font-size: 2.5rem;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    color: var(--accent-color);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
     margin-bottom: 10px;
+    animation: titlePulse 3s infinite alternate;
+}
+
+@keyframes titlePulse {
+    from { text-shadow: 0 0 8px rgba(0, 255, 255, 0.4); }
+    to { text-shadow: 0 0 15px rgba(0, 255, 255, 0.7); }
 }
 
 .detail-subtitle {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-secondary);
     font-style: italic;
 }
 
@@ -61,13 +122,16 @@ body {
 
 .section-title {
     font-size: 1.5rem;
-    color: #4ecdc4;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 12px;
     padding-left: 10px;
-    border-left: 4px solid #ff6b6b;
+    border-left: 4px solid transparent;
     position: relative;
 }
 
@@ -78,7 +142,7 @@ body {
     top: 0;
     bottom: 0;
     width: 4px;
-    background: linear-gradient(to bottom, #ff6b6b, #4ecdc4);
+    background: linear-gradient(to bottom, var(--action-color), var(--accent-color));
     transition: all 0.3s ease;
 }
 
@@ -92,15 +156,15 @@ body {
 .content-list li {
     padding: 12px 0 12px 30px;
     position: relative;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-secondary);
     line-height: 1.7;
     transition: all 0.3s ease;
-    border-radius: 8px;
+    border-radius: var(--border-radius-sm);
     margin-bottom: 8px;
 }
 
 .content-list li:hover {
-    background: rgba(78, 205, 196, 0.1);
+    background: rgba(0, 255, 255, 0.08);
     padding-left: 40px;
     transform: translateX(5px);
 }
@@ -109,35 +173,39 @@ body {
     content: "▶";
     position: absolute;
     left: 0;
-    color: #ff6b6b;
+    color: var(--accent-color);
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    filter: drop-shadow(0 0 3px rgba(0, 255, 255, 0.4));
 }
 
 .content-list li:hover::before {
-    color: #4ecdc4;
+    color: var(--accent-secondary);
     transform: scale(1.2);
+    filter: drop-shadow(0 0 5px rgba(255, 217, 61, 0.5));
 }
 
-/* 圖片樣式 */
+/* 圖片樣式 - 修正裁切問題：使用 object-fit: contain 確保圖片完整顯示 */
 .detail-image {
     width: 100%;
     max-width: 100%;
     height: auto;
-    border-radius: 15px;
+    object-fit: contain;
+    border-radius: var(--border-radius-md);
     margin: 25px 0;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-heavy);
     transition: all 0.4s ease;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--panel-border);
+    background: rgba(15, 15, 35, 0.5);
 }
 
 .detail-image:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-    border-color: rgba(78, 205, 196, 0.5);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 255, 0.15);
+    border-color: rgba(0, 255, 255, 0.5);
 }
 
-/* 圖片畫廊 */
+/* 圖片畫廊 - 修正裁切問題 */
 .image-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -150,18 +218,25 @@ body {
     overflow: hidden;
     border-radius: 12px;
     transition: all 0.3s ease;
+    border: 1px solid var(--panel-border);
+    background: rgba(15, 15, 35, 0.5);
 }
 
 .gallery-item:hover {
     transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 255, 255, 0.1);
+    border-color: rgba(0, 255, 255, 0.4);
 }
 
+/* 修正：圖片使用 object-fit: contain 避免裁切，並給予合理的最大高度 */
 .gallery-item img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    height: 200px;
+    object-fit: contain;
     border-radius: 12px;
     transition: all 0.3s ease;
+    background: rgba(15, 15, 35, 0.8);
+    padding: 4px;
 }
 
 .gallery-item:hover img {
@@ -172,29 +247,32 @@ body {
 .image-caption {
     text-align: center;
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-muted);
     margin-top: 12px;
     font-style: italic;
     padding: 8px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid rgba(0, 255, 255, 0.08);
     transition: all 0.3s ease;
 }
 
 .image-caption:hover {
-    color: #4ecdc4;
-    background: rgba(78, 205, 196, 0.1);
+    color: var(--accent-color);
+    background: rgba(0, 255, 255, 0.08);
+    border-color: rgba(0, 255, 255, 0.2);
 }
 
 /* 特殊說明區塊 */
 .note-section {
-    background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(78, 205, 196, 0.1));
-    border: 1px solid rgba(255, 107, 107, 0.3);
-    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 255, 255, 0.03));
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: var(--border-radius-md);
     padding: 25px;
     margin: 30px 0;
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow-medium);
 }
 
 .note-section::before {
@@ -204,41 +282,62 @@ body {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    background: linear-gradient(90deg, var(--action-color), var(--accent-color));
 }
 
 .note-section h3 {
-    color: #ff6b6b;
+    color: var(--accent-secondary);
     margin-bottom: 15px;
     font-size: 1.3rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    text-shadow: 0 0 4px rgba(255, 217, 61, 0.3);
 }
 
 .note-section p {
     margin: 0;
     font-style: italic;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
-/* 返回按鈕（如果需要獨立瀏覽時使用） */
+/* 返回按鈕 */
 .back-button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    background: var(--btn-gradient);
     color: white;
     text-decoration: none;
     padding: 12px 24px;
-    border-radius: 25px;
-    font-weight: bold;
+    border-radius: var(--border-radius-pill);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
     transition: all 0.3s ease;
     margin-bottom: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.back-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.5s ease;
+}
+
+.back-button:hover::before {
+    left: 100%;
 }
 
 .back-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
     text-decoration: none;
     color: white;
 }
@@ -266,45 +365,105 @@ body {
     }
 }
 
+/* ==================== 全局滾軸樣式 ==================== */
+html, body {
+    scrollbar-width: thin;
+    scrollbar-color: #00ffff #202038;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #00ffff 0%, #0099cc 100%);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #00e0ff 0%, #0077aa 100%);
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    background: #202038;
+    border-radius: 8px;
+}
+
 /* 響應式設計 */
 @media (max-width: 768px) {
+    /* 移動設備性能優化 */
+    body::before {
+        animation: none;
+        opacity: 0.5;
+    }
+
+    .detail-container::before {
+        animation: none;
+    }
+
     body {
         padding: 10px;
     }
-    
+
     .detail-container {
         padding: 20px 15px;
         margin: 0;
-        border-radius: 15px;
+        border-radius: var(--border-radius-md);
     }
-    
+
     .detail-title {
         font-size: 2rem;
     }
-    
+
     .detail-subtitle {
         font-size: 1rem;
     }
-    
+
     .section-title {
         font-size: 1.3rem;
     }
-    
+
     .image-gallery {
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    
+
     .gallery-item img {
         height: 150px;
     }
-    
+
     .content-list li {
         padding-left: 20px;
     }
-    
+
     .content-list li:hover {
         padding-left: 25px;
+    }
+}
+
+/* 電量友善模式 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.1s !important;
+    }
+
+    body::before {
+        animation: none;
+    }
+}
+
+/* 高對比模式支持 */
+@media (prefers-contrast: high) {
+    :root {
+        --accent-color: #ffffff;
+        --action-color: #ff0000;
     }
 }
 
@@ -314,14 +473,18 @@ body {
         background: white;
         color: black;
     }
-    
+
     .detail-container {
         background: white;
         box-shadow: none;
         border: 1px solid #ccc;
     }
-    
+
     .back-button {
+        display: none;
+    }
+
+    .detail-container::before {
         display: none;
     }
 }
