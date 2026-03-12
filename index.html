@@ -19,14 +19,31 @@
     <header>
         <nav>
             <div class="logo">關於 萊姆醬</div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">主頁</a>
+                </li>
+                <li class="nav-item nav-dropdown">
+                    <span class="nav-link">個人工具</span>
+                    <div class="dropdown-menu">
+                        <a href="tool.html" class="dropdown-item">換行轉換器</a>
+                    </div>
+                </li>
+            </ul>
         </nav>
     </header>
 
+    <!-- Scroll Buttons -->
+    <div class="scroll-buttons">
+        <button class="scroll-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部">&#9650;</button>
+        <button class="scroll-btn" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})" title="前往底部">&#9660;</button>
+    </div>
+
     <main class="container">
         <section class="hero">
-            <h1>擅長遊戲伺服器營運</h1>
-            <p>7年以上豐富經驗，專精於企劃、開發與維護</p>
-            <p>同時身兼資深後端工程師專業程式開發能力</p>
+            <h1>遊戲伺服器營運</h1>
+            <p>7年以上經驗 ─ 企劃、開發、維護一手包辦</p>
+            <p>後端工程師 / 遊戲企劃 / 全端開發</p>
         </section>
 
         <section class="profile-section fade-in-up">
@@ -96,8 +113,8 @@
                     <!-- 個人簡介 -->
                     <div class="info-card bio-card">
                         <h3>個人簡介</h3>
-                        <p>具備紮實的軟體開發能力與多年遊戲伺服器營運經驗，過程中累積了豐富實戰成果。對遊戲開發充滿熱情，並喜愛參與劇情構思與世界觀設定，能夠獨立編寫完整的架構與故事內容。</p>
-                        <p>我相信，既然對遊戲營運與策劃深感興趣，便應積極行動、持續學習，朝著成為具備實作能力的開發者邁進。雖然主修資訊工程，但在私人時間持續投入遊戲伺服器的營運，也致力於劇情撰寫與版本內容的規劃更新，這些經驗讓我在相關領域中逐步累積了一定的成果與認可。</p>
+                        <p>從大學時期就開始經營 Minecraft 伺服器，一路從企劃、副本設計做到後端開發跟資料庫維護。寫程式之餘也喜歡構思劇情跟世界觀，自己寫過完整的遊戲故事線。</p>
+                        <p>本職是後端工程師，下班後繼續搞遊戲伺服器營運跟版本更新。比起只寫 code，更想做「能讓玩家玩得開心」的東西。</p>
                     </div>
         
                     <!-- 聯絡資訊 -->
