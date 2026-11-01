@@ -3,122 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" />
     <title>SFL-RPG - 萊姆醬</title>
-    <link rel="stylesheet" href="css/project-detail.css">
+    <link rel="stylesheet" href="css/project-detail.css?v=2026110101">
 </head>
-<body>
+<body class="detail-page">
     <div class="detail-container">
-        <!-- 當獨立瀏覽時顯示的標題 -->
         <div class="detail-header">
             <h1 class="detail-title">SFL-RPG</h1>
-            <p class="detail-subtitle">2025/05/19 ~ OnGoing</p>
+            <p class="detail-subtitle">2025/05/19 ~ 營運中</p>
             <a href="index.html" class="back-button">← 返回主頁</a>
         </div>
 
-        <!-- 項目概述 -->
         <div class="content-section">
-            <p>單人營運開發之網頁文字冒險副本制遊戲，玩家可以透過挑戰副本升等、獲得道具強化卡片解鎖更高難的副本，隨著主線推進解鎖更多主線劇情以及夥伴羈絆</p>
+            <p class="lead">一個人從零開發、上線並持續營運的網頁遊戲。玩家進副本前配置能力值、技能、卡片與夥伴，戰鬥一鍵自動結算，靠配置推進副本層數；通關後解鎖主線小說，劇情中認識的角色會成為之後能並肩作戰的夥伴。</p>
+            <div class="d-stats">
+                <div class="d-stat"><b>4 章</b><span>主線章節</span></div>
+                <div class="d-stat"><b>90 座</b><span>單人副本</span></div>
+                <div class="d-stat"><b>900+</b><span>怪物種類</span></div>
+                <div class="d-stat"><b>26 位</b><span>羈絆夥伴</span></div>
+                <div class="d-stat"><b>1,100+</b><span>道具</span></div>
+                <div class="d-stat"><b>96 張</b><span>可製作卡片</span></div>
+                <div class="d-stat"><b>68 章</b><span>主線小說</span></div>
+                <div class="d-stat"><b>500</b><span>等級上限</span></div>
+            </div>
         </div>
 
-        <!-- 遊戲內容設計 -->
         <div class="content-section">
-            <h3 class="section-title">🎮 遊戲內容</h3>
-            <ul class="content-list">
-                <li>自動回合制戰鬥，觸發戰鬥後推播戰鬥紀錄，每一場戰鬥冷卻30秒。玩家可以自由搭配裝備卡片以及技能。使用屬性克制、各種流派對應不同關卡。</li>
-                <li>單人副本：副本制，通關後前往下一層直至BOSS關卡，路中被擊敗需從第一層重新開始，可以在同一層滯留刷取素材。</li>
-                <li>多人副本：玩家可與其他兩名玩家進行組隊，並挑戰多人BOSS。BOSS通關冷卻5分鐘，死亡將冷卻1小時。</li>
-                <li>世界王系統：玩家每小時可挑戰一次，星期日為維修日無法挑戰。挑戰世界王可獲得一份基於傷害的經驗值獎勵與挑戰獎勵。</li>
-                <li>主線故事：通過副本後可解鎖主線故事內容，欣賞圖文並茂的主線劇情小說。</li>
-                
-            </ul>
-            
-            <!-- 功能截圖畫廊 -->
-            <div class="image-gallery">
-                <div class="gallery-item">
-                    <img src="img/dungeon.jpg" alt="副本入口介面">
-                    <div class="image-caption">副本入口介面</div>
+            <h3 class="block-title">遊戲宣傳 PV</h3>
+            <div class="video-wrap">
+                <iframe src="https://www.youtube-nocookie.com/embed/Upxf0WKxTC4?rel=0" title="SFL-RPG 遊戲主宣傳 PV" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3 class="block-title">四章主線</h3>
+            <div class="chapter-list">
+                <div class="chapter-row">
+                    <img src="img/sfl/dungeon_cosmosanctum.png" alt="第一章 啟程" loading="lazy">
+                    <div class="chapter-text">
+                        <h4><span>第一章</span>啟程</h4>
+                        <p>醒來的地方是三界：諸神所在的雲空大陸、魔法充斥的潘朵拉，以及只剩無機生命的次元界。伊甸的造物主「時空萬象」命令使徒魔劍使獵殺三界的創世主，沒有人知道原因。旅程的終點，是踏進伊甸的大門。</p>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="img/dungeon_layer.jpg" alt="副本戰鬥介面">
-                    <div class="image-caption">單人副本戰鬥介面</div>
+                <div class="chapter-row">
+                    <img src="img/sfl/DemonKing_Castle.png" alt="第二章 絕闇大陸" loading="lazy">
+                    <div class="chapter-text">
+                        <h4><span>第二章</span>絕闇大陸</h4>
+                        <p>造物主殞落後，雲空大陸下界的世界根源開始騷動。四邪神要復活「父親大人」，並掠奪造物主四散的神力「創世餘暉」。各方勢力為此搶奪死靈之書「尼克羅諾米肯」，而三界真正的秘密，只有來自外宇宙的存在知道。</p>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="img/multi.jpg" alt="多人副本戰鬥介面">
-                    <div class="image-caption">多人副本戰鬥介面</div>
+                <div class="chapter-row">
+                    <img src="img/sfl/dungeon_star_frontline.png" alt="第三章 寰宇" loading="lazy">
+                    <div class="chapter-text">
+                        <h4><span>第三章</span>寰宇</h4>
+                        <p>三界的屏障消失，寰宇的「概念化身」注意到了這裡。寰宇本源「科詩莫斯」下達殲滅令，要將被稱為異端的埃雷西斯星系徹底毀滅。「浩劫」率先進攻，伊甸的星空最前線戰況膠著，這時「偏差」伸出了援手。</p>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="img/world_boss.jpg" alt="世界王介面">
-                    <div class="image-caption">世界王介面</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="img/story.jpg" alt="主線故事">
-                    <div class="image-caption">主線故事</div>
+                <div class="chapter-row">
+                    <img src="img/sfl/dungeon_spaceport.png" alt="第四章 軸心" loading="lazy">
+                    <div class="chapter-text">
+                        <h4><span>第四章</span>軸心</h4>
+                        <p>科詩莫斯寰宇之外，是熱寂的領域。熵增斥候為了獻給軸心的「奧克托爾」，正一顆顆湮滅僅存的新星。一群「追逐光的探險家」成立了寰宇聯合公司，打算把寰宇的光送進軸心的每個角落。</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- 資料庫維護 -->
         <div class="content-section">
-            <h3 class="section-title">🛠 玩家能力值相關系統</h3>
+            <h3 class="block-title">戰鬥玩法</h3>
             <ul class="content-list">
-                <li>卡片系統：透過副本怪物掉落素材製作卡片，強化能力，一次最多裝備五張卡片，自由搭配對應關卡。</li>
-                <li>能力值系統：每升級一級可獲得5點能力值，玩家可透過強化生命基值、攻擊力、幸運值、攻擊速度，強化能力配比出對應關卡的數值。</li>
-                <li>技能系統：每升級一級可獲得3點技能點數，玩家可透過分配不同技能來攻略不同關卡，技能擁有屬性，可克制或被克制怪物能力、技能擁有冷卻以及等待回合，適當安排進行副本攻略。</li>
-                <li>夥伴羈絆系統：玩家可以透過多人副本獲得【羈絆象徵】用來解鎖與強化副本中結識的夥伴，並在單人副本中觸發【場域變因】效果，例如：一次復活機會、經驗值加成、基於血量降低BOSS血量。</li>
+                <li><strong>自動回合制：</strong>按下戰鬥後一次結算整場，逐行播放戰鬥紀錄。一般怪物要在 10 回合內、BOSS 要在 20 回合內擊破，攻速夠高還能搶先手、一回合多次行動。開啟自動再戰即可掛機推層。</li>
+                <li><strong>單人副本：</strong>四個章節共 90 座副本，逐層挑戰直到 BOSS 關，途中戰敗得從第一層重來，也可以停在同一層刷素材。部分副本帶有「場域變因」，會針對特定夥伴或流派改變戰鬥條件。</li>
+                <li><strong>多人副本：</strong>與另外兩名玩家組隊挑戰多人 BOSS，掉落解鎖夥伴用的「羈絆象徵」。</li>
+                <li><strong>世界王：</strong>全服共同挑戰，依造成的傷害發放經驗值與獎勵，並有傷害排名。</li>
+                <li><strong>深淵之塔：</strong>終局內容，每層只有一隻 BOSS，通關紀錄進入排行榜比拚。</li>
             </ul>
             <div class="image-gallery">
                 <div class="gallery-item">
-                    <img src="img/card.jpg" alt="卡片系統" class="detail-image">
-                    <div class="image-caption">卡片強化系統</div>
+                    <img src="img/dungeon.jpg" alt="副本入口介面" loading="lazy">
+                    <div class="image-caption">副本入口</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/stats.jpg" alt="能力值系統" class="detail-image">
-                    <div class="image-caption">能力值系統</div>
+                    <img src="img/dungeon_layer.jpg" alt="單人副本戰鬥介面" loading="lazy">
+                    <div class="image-caption">單人副本戰鬥</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/skill.jpg" alt="技能系統" class="detail-image">
-                    <div class="image-caption">技能系統</div>
+                    <img src="img/multi.jpg" alt="多人副本戰鬥介面" loading="lazy">
+                    <div class="image-caption">多人副本戰鬥</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/bond.jpg" alt="夥伴羈絆系統" class="detail-image">
-                    <div class="image-caption">夥伴羈絆系統</div>
+                    <img src="img/world_boss.jpg" alt="世界王介面" loading="lazy">
+                    <div class="image-caption">世界王</div>
                 </div>
             </div>
+        </div>
 
-        <!-- 補充說明 -->
+        <div class="content-section">
+            <h3 class="block-title">養成系統</h3>
+            <ul class="content-list">
+                <li><strong>能力值與技能：</strong>生命、攻擊、運氣、攻速四項自由配點，1～300 級每級獲得 5 點能力點與 3 點技能點。技能分輸出、減益、治療等類型，各自帶屬性、冷卻與等待回合，能力與技能都能存成多組配置一鍵切換。</li>
+                <li><strong>卡片矩陣：</strong>5 個卡片插槽，用副本素材在製作終端合成卡片，失敗會累積成功率，卡片可升級提高鑲嵌數值。</li>
+                <li><strong>夥伴羈絆：</strong>26 位夥伴各有獨特被動，有的直接改寫戰鬥規則，衍生出反擊流、開場爆發、持續傷害引爆等流派。夥伴可逐級強化，滿級後還能覺醒。</li>
+                <li><strong>創世命路：</strong>300 級後改為每 5 級解鎖一項永久被動，例如屬性克制傷害提升、技能機率無視冷卻、開場讓敵方無法行動，一路延伸到 500 級。</li>
+                <li><strong>寰宇艦船與歷練遠征：</strong>250 級解鎖艦船，消耗第三章素材強化船體、艦橋、引擎、武器、核心五個部件；遠征每 12 小時結算一次，依通關的最高層副本給予經驗。</li>
+            </ul>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="img/card.jpg" alt="卡片矩陣" loading="lazy">
+                    <div class="image-caption">卡片矩陣</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/stats.jpg" alt="能力值系統" loading="lazy">
+                    <div class="image-caption">能力值配置</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/skill.jpg" alt="技能系統" loading="lazy">
+                    <div class="image-caption">技能配置</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/bond.jpg" alt="夥伴羈絆系統" loading="lazy">
+                    <div class="image-caption">夥伴羈絆</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3 class="block-title">世界觀與劇情</h3>
+            <p>主線以圖文小說的形式隨副本進度解鎖，目前寫到第 68 章，另有夥伴個人故事、人物關係圖與術語辭典。每座副本的 BOSS 都對應劇情中的角色，怪物說明和道具介紹也會補上主線沒講到的細節。</p>
+            <div class="lore-grid">
+                <div class="lore-card">
+                    <img src="img/sfl/mask_three_world.webp" alt="三界的創世主" loading="lazy">
+                    <p>三界的創世主，分別創造了次元界、潘朵拉、雲空大陸</p>
+                </div>
+                <div class="lore-card">
+                    <img src="img/sfl/mask_demon.webp" alt="絕闇大陸的四邪神" loading="lazy">
+                    <p>絕闇大陸的四座邪神，分別司掌鬼、魔、無、惡</p>
+                </div>
+                <div class="lore-card">
+                    <img src="img/sfl/mask_eden_1.webp" alt="伊甸永光序列" loading="lazy">
+                    <p>伊甸的九席永光序列，代行時空萬象的星空律令</p>
+                </div>
+                <div class="lore-card">
+                    <img src="img/sfl/mask_conceptual_lncarnation.webp" alt="概念化身" loading="lazy">
+                    <p>科詩莫斯將自身分割為數個概念化身，依「律令」擴張「領域」</p>
+                </div>
+                <div class="lore-card">
+                    <img src="img/sfl/mask_universal_union_company.webp" alt="寰宇聯合公司" loading="lazy">
+                    <p>「追逐光的探險家」跨越軸心，尋找寰宇之外的真實</p>
+                </div>
+                <div class="lore-card">
+                    <img src="img/sfl/mask_gnostic.webp" alt="諾斯替外神" loading="lazy">
+                    <p>諾斯替外神「佩雷若瑪」在軸心中獵殺「刻諾瑪」</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3 class="block-title">技術架構</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>前端</h4>
+                    <p>原生 HTML / CSS / JavaScript，部署於 Cloudflare。手機與電腦共用同一套頁面，並提供多段效能模式。</p>
+                </div>
+                <div class="tech-item">
+                    <h4>後端</h4>
+                    <p>Python Flask API 部署於 Render，戰鬥引擎、多人副本與各系統邏輯都在伺服器端結算，前端只負責呈現。</p>
+                </div>
+                <div class="tech-item">
+                    <h4>資料與帳號</h4>
+                    <p>Firebase Firestore 與 Firebase Auth。遊戲靜態資料以 JSON 管理，API 請求做身分驗證與頻率限制。</p>
+                </div>
+            </div>
+        </div>
+
         <div class="content-section">
             <div class="note-section">
                 <h3>📌 補充說明</h3>
-                <p>此專案屬於非營利性質，僅用於個人學習與社群交流用途，所有個人參與之設計與開發行為不涉及商業或收費行為。</p>
+                <p>本專案為非營利性質，僅作為個人學習與社群交流之用，所有設計與開發皆不涉及商業或收費行為。</p>
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.content-section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        });
-
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('load', function() {
-                this.style.opacity = '1';
-            });
-        });
-    </script>
 </body>
 </html>

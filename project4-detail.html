@@ -3,80 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" />
     <title>Discord Bot - 萊姆醬</title>
-    <link rel="stylesheet" href="css/project-detail.css">
+    <link rel="stylesheet" href="css/project-detail.css?v=2026110101">
 </head>
-<body>
+<body class="detail-page">
     <div class="detail-container">
-        <!-- 當獨立瀏覽時顯示的標題 -->
         <div class="detail-header">
             <h1 class="detail-title">Discord Bot</h1>
-            <p class="detail-subtitle">2025/5/6 ~ OnGoing</p>
+            <p class="detail-subtitle">2025/05/06 ~ 運作中</p>
             <a href="index.html" class="back-button">← 返回主頁</a>
         </div>
 
-        <!-- 項目概述 -->
         <div class="content-section">
-            <p>設計三隻機器人用來推播各式訊息以及指令操作。機器人如下：</p>
+            <p class="lead">為社群伺服器寫的三隻機器人，負責訊息推播與指令操作。</p>
+        </div>
 
-            <div class="content-section">
-            <h3 class="section-title">🎮 遊戲內容</h3>
+        <div class="content-section">
+            <h3 class="block-title">🛠 技術架構</h3>
             <ul class="content-list">
-                <li>萬葉機器人 與 納西妲機器人 使用 Python 語言為主要語言進行撰寫，並以 Github Action 與 Github Gist 作為資料觸發更新與資料儲存方法。</li>
-                <li>小圈圈內鬼推播機器人 同樣使用 Python 語言為主要語言進行撰寫，但以 Railway 與 Github Gist 作為資料觸發更新與資料儲存方法。</li>
+                <li><strong>萬葉機器人、納西妲機器人：</strong>以 Python 撰寫，用 GitHub Actions 定時觸發、GitHub Gist 儲存資料。</li>
+                <li><strong>小圈圈內鬼推播機器人：</strong>同樣以 Python 撰寫，改由 Railway 常駐執行，資料存放在 GitHub Gist。</li>
             </ul>
         </div>
-            
-            
-            <!-- KazuBot -->
-            <img src="img/kazubot.jpg" alt="kazubot" class="detail-image">
-            <div class="image-caption">萬葉機器人</div>
-            <p>負責每3分鐘爬蟲一次米哈遊Youtube官方頻道(三款遊戲中英日頻道)，並進行推播最新影片資訊。</p>
 
-            <!-- nahidabot -->
-            <img src="img/nahidabot.jpg" alt="nahidabot" class="detail-image">
-            <div class="image-caption">納西妲機器人</div>
-            <p>Discord 社群伺服器管理機器人，可即時建立回應圖片指令以及自動推播生日慶祝賀圖等。</p>
-
-            <!--  telegram bot -->
-            <img src="img/telegrambot.jpg" alt="telegrambot" class="detail-image">
-            <div class="image-caption">小圈圈內鬼推播機器人</div>
-            <p>自動爬蟲 Telegram頻道消息推播至 Discord 伺服器中。</p>
+        <div class="content-section">
+            <h3 class="block-title">🤖 機器人介紹</h3>
+            <div class="bot-block">
+                <img src="img/kazubot.jpg" alt="萬葉機器人" class="detail-image" loading="lazy">
+                <h4>萬葉機器人</h4>
+                <p>每 3 分鐘檢查一次米哈遊三款遊戲的中、英、日官方 YouTube 頻道，有新影片就推播到伺服器。</p>
+            </div>
+            <div class="bot-block">
+                <img src="img/nahidabot.jpg" alt="納西妲機器人" class="detail-image" loading="lazy">
+                <h4>納西妲機器人</h4>
+                <p>社群管理用機器人，可以即時新增圖片回應指令，也會在成員生日當天自動送上賀圖。</p>
+            </div>
+            <div class="bot-block">
+                <img src="img/telegrambot.jpg" alt="小圈圈內鬼推播機器人" class="detail-image" loading="lazy">
+                <h4>小圈圈內鬼推播機器人</h4>
+                <p>抓取 Telegram 頻道的新訊息，自動轉發到 Discord 伺服器。</p>
+            </div>
         </div>
 
-        <!-- 補充說明 -->
         <div class="content-section">
             <div class="note-section">
                 <h3>📌 補充說明</h3>
-                <p>此專案屬於非營利性質，僅用於個人學習與社群交流用途，所有個人參與之設計與開發行為不涉及商業或收費行為。</p>
+                <p>本專案為非營利性質，僅作為個人學習與社群交流之用，所有設計與開發皆不涉及商業或收費行為。</p>
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.content-section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        });
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('load', function() {
-                this.style.opacity = '1';
-            });
-        });
-    </script>
 </body>
 </html>

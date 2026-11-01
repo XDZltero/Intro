@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="favicon.ico" />
 <title>換行轉 \n 工具</title>
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/main.css?v=2026110101">
 <style>
   .tool-container {
     max-width: 860px;
@@ -20,19 +20,19 @@
     font-weight: 900;
     margin-bottom: 30px;
     color: var(--accent-color);
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
-    animation: fadeInUp 1s ease-out, titlePulse 3s infinite alternate;
+    animation: fadeInUp 1s ease-out, titlePulse 2s infinite alternate;
   }
 
   .tool-panel {
-    background: var(--panel-bg);
-    border: 1px solid var(--panel-border);
-    border-radius: var(--border-radius-lg);
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
     padding: 30px;
     margin-bottom: 20px;
     position: relative;
     overflow: hidden;
-    box-shadow: var(--shadow-heavy);
+    box-shadow: var(--shadow-panel);
   }
 
   .tool-panel::before {
@@ -54,7 +54,7 @@
 
   .area-label {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--text-muted);
     font-family: 'Orbitron', sans-serif;
     font-weight: 600;
   }
@@ -63,9 +63,9 @@
     width: 100%;
     height: 220px;
     background: rgba(10, 10, 30, 0.6);
-    border: 1px solid var(--panel-border);
+    border: 1px solid var(--card-border);
     border-radius: 12px;
-    color: var(--text-primary);
+    color: var(--text-color);
     font-size: 16px;
     padding: 14px;
     resize: vertical;
@@ -160,7 +160,7 @@
 
   .stats {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--text-dim);
     text-align: right;
     margin-top: 8px;
     font-family: 'Orbitron', sans-serif;
@@ -209,10 +209,13 @@
 
     <header>
         <nav>
-            <div class="logo">關於 萊姆醬</div>
+            <a href="index.html" class="logo">關於 萊姆醬</a>
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="index.html" class="nav-link">主頁</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#sfl" class="nav-link">SFL-RPG</a>
                 </li>
                 <li class="nav-item nav-dropdown">
                     <span class="nav-link active">個人工具</span>
@@ -224,10 +227,9 @@
         </nav>
     </header>
 
-    <!-- Scroll Buttons -->
     <div class="scroll-buttons">
         <button class="scroll-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部">&#9650;</button>
-        <button class="scroll-btn" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})" title="前往底部">&#9660;</button>
+        <button class="scroll-btn" onclick="window.scrollTo({top:document.documentElement.scrollHeight - window.innerHeight,behavior:'smooth'})" title="前往底部">&#9660;</button>
     </div>
 
     <div class="tool-container">
@@ -258,7 +260,7 @@
     </div>
 
     <footer>
-        <p>&copy; <span id="footerYear"></span> 關於萊姆醬. All rights reserved.</p>
+        <p>&copy; <span id="footerYear"></span> 關於萊姆醬・<a href="https://sfl-rpg.com/" target="_blank" rel="noopener">SFL-RPG</a></p>
     </footer>
 
 <script>
@@ -298,10 +300,13 @@
     document.getElementById('stats').textContent = '';
   }
 
-  // Footer 年份自動更新
   document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-  // 下拉選單點擊觸發（手機友善）
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
   document.querySelectorAll('.nav-dropdown .nav-link').forEach(link => {
     link.addEventListener('click', e => {
       e.stopPropagation();
@@ -312,7 +317,6 @@
     document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
   });
 
-  // 禁止右鍵與長按複製（textarea 除外）
   document.addEventListener('contextmenu', e => {
     if (e.target.tagName !== 'TEXTAREA') e.preventDefault();
   });

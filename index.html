@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <link rel="icon" href="favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="萊姆醬（XD_Zltero）：後端工程師、遊戲營運者，獨立開發營運網頁遊戲 SFL-RPG。">
     <title>關於 萊姆醬</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css?v=2026110101">
+    <link rel="stylesheet" href="css/project-detail.css?v=2026110101">
 </head>
 <body>
     <div class="floating-elements">
@@ -18,10 +20,13 @@
 
     <header>
         <nav>
-            <div class="logo">關於 萊姆醬</div>
+            <a href="index.html" class="logo">關於 萊姆醬</a>
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="index.html" class="nav-link active">主頁</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#sfl" class="nav-link">SFL-RPG</a>
                 </li>
                 <li class="nav-item nav-dropdown">
                     <span class="nav-link">個人工具</span>
@@ -33,28 +38,40 @@
         </nav>
     </header>
 
-    <!-- Scroll Buttons -->
     <div class="scroll-buttons">
         <button class="scroll-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部">&#9650;</button>
-        <button class="scroll-btn" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})" title="前往底部">&#9660;</button>
+        <button class="scroll-btn" onclick="window.scrollTo({top:document.documentElement.scrollHeight - window.innerHeight,behavior:'smooth'})" title="前往底部">&#9660;</button>
     </div>
 
     <main class="container">
         <section class="hero">
-            <h1>擅長遊戲伺服器營運</h1>
-            <p>7年以上豐富經驗，專精於企劃、開發與維護</p>
-            <p>同時身兼資深後端工程師專業程式開發能力</p>
+            <span class="hero-eyebrow">GAME OPERATOR × BACKEND ENGINEER</span>
+            <h1>遊戲營運 × 後端開發</h1>
+            <p>從 2014 年架起第一座 Minecraft 伺服器到現在，一直在做同一件事：想出玩家會喜歡的內容，寫出來，再讓它穩定跑下去。</p>
+            <p>本職後端工程師，目前獨立開發並營運網頁遊戲 SFL-RPG。</p>
+            <div class="hero-actions">
+                <a href="#sfl" class="sfl-btn">看看 SFL-RPG</a>
+                <a href="#projects" class="sfl-btn ghost">營運經歷</a>
+            </div>
         </section>
 
-        <section class="profile-section fade-in-up">
+        <section class="profile-section glass-panel fade-in-up">
             <div class="profile-content">
-                <div class="profile-image">
-                    <img src="img/self.jpg" alt="萊姆醬" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 300\'%3E%3Cdefs%3E%3ClinearGradient id=\'grad\' x1=\'0%25\' y1=\'0%25\' x2=\'100%25\' y2=\'100%25\'%3E%3Cstop offset=\'0%25\' style=\'stop-color:%23ff6b6b;stop-opacity:1\' /%3E%3Cstop offset=\'100%25\' style=\'stop-color:%234ecdc4;stop-opacity:1\' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=\'300\' height=\'300\' fill=\'url(%23grad)\'/%3E%3Ctext x=\'150\' y=\'170\' font-family=\'Arial\' font-size=\'80\' fill=\'white\' text-anchor=\'middle\'%3E萊姆%3C/text%3E%3C/svg%3E';">
+                <div class="profile-aside">
+                    <div class="profile-image">
+                        <img src="img/self.jpg" alt="萊姆醬" onerror="this.style.display='none'">
+                    </div>
+                    <div class="profile-name">萊姆醬</div>
+                    <div class="profile-handle">XD_Zltero</div>
+                    <div class="profile-tags">
+                        <span>後端工程師</span>
+                        <span>遊戲企劃</span>
+                        <span>劇情編寫</span>
+                        <span>獨立開發</span>
+                    </div>
                 </div>
+
                 <div class="profile-info">
-                    <h2>萊姆醬 (XD_Zltero)</h2>
-                    
-                    <!-- 基本資訊卡片 -->
                     <div class="info-card">
                         <h3>個人背景</h3>
                         <div class="info-table">
@@ -72,62 +89,54 @@
                             </div>
                             <div class="info-row">
                                 <span class="info-label">司內業務</span>
-                                <span class="info-value">RESTful API Back-End Engineer、SA、DBA</span>
+                                <span class="info-value">RESTful API 後端開發、SA、DBA</span>
                             </div>
-                             <div class="info-row">
+                            <div class="info-row">
                                 <span class="info-label">專業技能</span>
-                                <span class="info-value">全端軟體及網頁開發、遊戲企劃、活動企劃、小說級劇情構思、遊戲營運</span>
+                                <span class="info-value">全端網頁開發、遊戲與活動企劃、長篇劇情編寫、遊戲營運</span>
                             </div>
                             <div class="info-row">
                                 <span class="info-label">遊戲營運資歷</span>
-                                <span class="info-value highlight">7年以上</span>
+                                <span class="info-value highlight">7 年以上</span>
                             </div>
                         </div>
                     </div>
-        
-                    <!-- 技能能力表格 -->
+
                     <div class="info-card">
-                        <h3>編程技能</h3>
+                        <h3>程式技能</h3>
                         <div class="skills-table">
-                            <div class="skill-category">
-                                <div class="skill-level excellent">
-                                    <span class="skill-badge">精通</span>
-                                    <span class="skill-list">C#、Python、SQL、HTML</span>
-                                </div>
+                            <div class="skill-level excellent">
+                                <span class="skill-badge">精通</span>
+                                <span class="skill-list">C#、Python、SQL、HTML / CSS</span>
                             </div>
-                            <div class="skill-category">
-                                <div class="skill-level good">
-                                    <span class="skill-badge">熟練</span>
-                                    <span class="skill-list">JavaScript</span>
-                                </div>
+                            <div class="skill-level good">
+                                <span class="skill-badge">熟練</span>
+                                <span class="skill-list">JavaScript、Flask、Firebase</span>
                             </div>
-                            <div class="skill-category">
-                                <div class="skill-level basic">
-                                    <span class="skill-badge">基礎</span>
-                                    <span class="skill-list">Java、C++、C</span>
-                                </div>
+                            <div class="skill-level basic">
+                                <span class="skill-badge">基礎</span>
+                                <span class="skill-list">Java、C++、C</span>
                             </div>
                         </div>
                     </div>
-        
-                    <!-- 個人簡介 -->
+
                     <div class="info-card bio-card">
-                        <h3>個人簡介</h3>
-                        <p>具備紮實的軟體開發能力與多年遊戲伺服器營運經驗，過程中累積了豐富實戰成果。對遊戲開發充滿熱情，並喜愛參與劇情構思與世界觀設定，能夠獨立編寫完整的架構與故事內容。</p>
-                        <p>我相信，既然對遊戲營運與策劃深感興趣，便應積極行動、持續學習，朝著成為具備實作能力的開發者邁進。雖然主修資訊工程，但在私人時間持續投入遊戲伺服器的營運，也致力於劇情撰寫與版本內容的規劃更新，這些經驗讓我在相關領域中逐步累積了一定的成果與認可。</p>
+                        <h3>關於我</h3>
+                        <p>白天寫後端，下班後經營遊戲。從 Minecraft 伺服器、MMORPG 私服，到現在從零做起的 SFL-RPG，企劃、數值、劇情、程式和營運都是自己動手。</p>
+                        <p>我很喜歡寫世界觀。雲空幻想時期把故事拆進道具說明裡，SFL-RPG 則寫成六十多章的主線小說，四個章節的設定前後呼應。副本要打什麼王、王為什麼會在那裡，我習慣先把故事想清楚，再回頭設計數值和機制。</p>
+                        <p>營運這些年最大的收穫，是學會從玩家回饋裡做取捨：哪些問題要當天修掉，哪些想法該排進下個版本。</p>
                     </div>
-        
-                    <!-- 聯絡資訊 -->
-                    <div class="contact-info">
-                        <h3>📧 聯絡方式</h3>
+
+                    <div class="info-card">
+                        <h3>聯絡方式</h3>
                         <div class="contact-grid">
                             <div class="contact-item">
                                 <span class="contact-icon">✉️</span>
-                                <span class="contact-text">Email： XDZltero@gmail.com</span>
+                                <span class="contact-text">XDZltero@gmail.com</span>
                             </div>
                             <div class="contact-item">
                                 <span class="contact-icon">💬</span>
-                                <span class="contact-text">Discord： xd_zltero</span>
+                                <span class="contact-text">Discord：xd_zltero</span>
                             </div>
                         </div>
                     </div>
@@ -135,308 +144,273 @@
             </div>
         </section>
 
-        <section class="projects-section">
-            <h2 class="section-title">營運經驗項目</h2>
+        <section class="sfl-section" id="sfl">
+            <h2 class="section-title">目前作品<small>NOW OPERATING</small></h2>
+
+            <div class="sfl-showcase glass-panel fade-in-up">
+                <div class="sfl-banner" style="background-image: url('img/sfl/mask_universal_union_company.webp');">
+                    <div class="sfl-banner-text">
+                        <div class="sfl-logo">SFL-RPG</div>
+                        <div class="sfl-tagline">配置型策略掛機式養成網頁遊戲</div>
+                    </div>
+                </div>
+
+                <div class="sfl-body">
+                    <div class="sfl-meta">
+                        <span class="live">營運中</span>
+                        <span>2025/05/19 開發至今</span>
+                        <span>獨立開發</span>
+                        <span>免費遊玩・手機電腦皆可</span>
+                    </div>
+
+                    <p class="sfl-desc">進副本前把能力值、技能、卡片和夥伴配好，按下戰鬥後整場一次結算，靠配置一層一層往上推。每個夥伴都有會改寫戰鬥規則的被動，同一座副本可以用反擊、開場爆發、持續傷害引爆等完全不同的打法過關。企劃、數值、劇情、前後端、資料庫到資安控管，全部由我一個人開發和營運。</p>
+
+                    <div class="stat-grid">
+                        <div class="stat-item"><span class="stat-num">4<small>章</small></span><span class="stat-label">主線章節</span></div>
+                        <div class="stat-item"><span class="stat-num">90<small>座</small></span><span class="stat-label">單人副本</span></div>
+                        <div class="stat-item"><span class="stat-num">900+</span><span class="stat-label">怪物種類</span></div>
+                        <div class="stat-item"><span class="stat-num">26<small>位</small></span><span class="stat-label">羈絆夥伴</span></div>
+                        <div class="stat-item"><span class="stat-num">68<small>章</small></span><span class="stat-label">主線小說</span></div>
+                        <div class="stat-item"><span class="stat-num">11,600+</span><span class="stat-label">Commits</span></div>
+                    </div>
+
+                    <h3 class="sub-title">四個章節</h3>
+                    <div class="chapter-grid">
+                        <div class="chapter-card">
+                            <img src="img/sfl/dungeon_ch1_0527.png" alt="第一章 啟程" loading="lazy">
+                            <div class="chapter-info">
+                                <div class="chapter-tag">第一章</div>
+                                <div class="chapter-name">啟程</div>
+                                <p>三界的創世主接連遭到魔劍使獵殺，下令的造物主就在伊甸的大門之後。</p>
+                            </div>
+                        </div>
+                        <div class="chapter-card">
+                            <img src="img/sfl/dungeon_ch2_0527.png" alt="第二章 絕闇大陸" loading="lazy">
+                            <div class="chapter-info">
+                                <div class="chapter-tag">第二章</div>
+                                <div class="chapter-name">絕闇大陸</div>
+                                <p>造物主殞落，四邪神想復活「父親大人」，各方勢力搶奪死靈之書「尼克羅諾米肯」。</p>
+                            </div>
+                        </div>
+                        <div class="chapter-card">
+                            <img src="img/sfl/dungeon_ch3_0527.png" alt="第三章 寰宇" loading="lazy">
+                            <div class="chapter-info">
+                                <div class="chapter-tag">第三章</div>
+                                <div class="chapter-name">寰宇</div>
+                                <p>屏障消失，寰宇本源「科詩莫斯」下令將三界抹除，「浩劫」率先兵臨星空最前線。</p>
+                            </div>
+                        </div>
+                        <div class="chapter-card">
+                            <img src="img/sfl/dungeon_ch4.png" alt="第四章 軸心" loading="lazy">
+                            <div class="chapter-info">
+                                <div class="chapter-tag">第四章</div>
+                                <div class="chapter-name">軸心</div>
+                                <p>寰宇之外只剩熱寂。寰宇聯合公司的探險家們，要把光帶進軸心的每個角落。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sfl-actions">
+                        <a href="https://sfl-rpg.com/" class="sfl-btn gold" target="_blank" rel="noopener">進入遊戲</a>
+                        <button class="sfl-btn" onclick="showProjectDetail('project3')">開發細節</button>
+                        <a href="https://discord.gg/GgYaxsjEJg" class="sfl-btn ghost" target="_blank" rel="noopener">官方 Discord</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section" id="projects">
+            <h2 class="section-title">營運經歷<small>PROJECTS</small></h2>
             <div class="projects-grid">
 
-                <div class="project-card fade-in-up">
-                    <div class="project-image">
-                        <img src="img/SFL.jpg" alt="SFL-RPG" onerror="this.parentElement.innerHTML='⚔️'; this.parentElement.classList.add('emoji-fallback');">
+                <div class="project-card featured fade-in-up">
+                    <span class="project-badge">主力作品</span>
+                    <div class="project-image cover">
+                        <img src="img/sfl/sfl_official.jpg" alt="SFL-RPG" onerror="this.parentElement.innerHTML='⚔️'; this.parentElement.classList.add('emoji-fallback');">
                     </div>
                     <div class="project-title">SFL-RPG</div>
-                    <div class="project-time">時間: 2025/05/19 ~ OnGoing</div>
+                    <div class="project-time">2025/05/19 ~ 營運中</div>
                     <div class="project-content">
-                        <strong>遊戲：</strong> 網頁文字遊戲 <br>
-                        <strong>遊戲內容：</strong> 關卡式副本挑戰、技能搭配戰鬥、自動戰鬥 <br>
-                        <strong>項目內容：</strong> 總遊戲營運、網頁開發、後端API開發、系統設計、怪物設計、資料庫維護、連線資安控管 <br>
+                        <dl>
+                            <dt>類型</dt><dd>配置型策略掛機式養成網頁遊戲</dd>
+                            <dt>內容</dt><dd>四章主線、單人／多人副本、世界王、深淵之塔、夥伴羈絆</dd>
+                            <dt>負責</dt><dd>獨立開發營運：企劃、劇情、數值、前後端、資料庫、資安控管</dd>
+                        </dl>
                     </div>
-                    <button class="detail-button" onclick="showProjectDetail('project3')">詳細</button>
+                    <button class="sfl-btn" onclick="showProjectDetail('project3')">詳細</button>
                 </div>
 
                 <div class="project-card fade-in-up">
                     <div class="project-image">
-                        <img src="img/discord.png" alt="DiscordBot" onerror="this.parentElement.innerHTML='🎮'; this.parentElement.classList.add('emoji-fallback');">
+                        <img src="img/discord.png" alt="Discord Bot" onerror="this.parentElement.innerHTML='🤖'; this.parentElement.classList.add('emoji-fallback');">
                     </div>
                     <div class="project-title">Discord Bot</div>
-                    <div class="project-time">時間: 2025/5/6 ~ OnGoing</div>
+                    <div class="project-time">2025/05/06 ~ 運作中</div>
                     <div class="project-content">
-                        <strong>服務平台：</strong> Discord <br>
-                        <strong>機器人內容：</strong> 訊息推播、爬蟲、指令 <br>
-                        <strong>項目內容：</strong> 指令設計、程式開發 <br>
+                        <dl>
+                            <dt>平台</dt><dd>Discord</dd>
+                            <dt>功能</dt><dd>影片與頻道推播、爬蟲、社群管理指令</dd>
+                            <dt>負責</dt><dd>指令設計、程式開發、部署</dd>
+                        </dl>
                     </div>
-                    <button class="detail-button" onclick="showProjectDetail('project4')">詳細</button>
+                    <button class="sfl-btn" onclick="showProjectDetail('project4')">詳細</button>
                 </div>
 
                 <div class="project-card fade-in-up">
                     <div class="project-image">
-                        <img src="img/MMO.png" alt="大型MMORPG伺服器" onerror="this.parentElement.innerHTML='🎮'; this.parentElement.classList.add('emoji-fallback');">
+                        <img src="img/MMO.png" alt="大型 MMORPG 伺服器" onerror="this.parentElement.innerHTML='🎮'; this.parentElement.classList.add('emoji-fallback');">
                     </div>
-                    <div class="project-title">大型MMORPG伺服器</div>
-                    <div class="project-time">時間: 2018/8/26~2019/1/31 (約5個月)</div>
+                    <div class="project-title">大型 MMORPG 伺服器</div>
+                    <div class="project-time">2018/08/26 ~ 2019/01/31（約 5 個月）</div>
                     <div class="project-content">
-                        <strong>遊戲：</strong> 不公開🤫 <br>
-                        <strong>遊戲內容：</strong> 大型橫向卷軸MMORPG多人線上遊戲，曾一度達到單日在線玩家 2000 名。 <br>
-                        <strong>項目內容：</strong> 總企劃、副本設計、活動企劃、前端內容開發、後端資料庫維護 <br>
+                        <dl>
+                            <dt>遊戲</dt><dd>不公開 🤫</dd>
+                            <dt>規模</dt><dd>橫向卷軸 MMORPG，單日在線最高約 2,000 人</dd>
+                            <dt>負責</dt><dd>總企劃、副本設計、活動企劃、腳本開發、資料庫維護</dd>
+                        </dl>
                     </div>
-                    <button class="detail-button" onclick="showProjectDetail('project2')">詳細</button>
+                    <button class="sfl-btn" onclick="showProjectDetail('project2')">詳細</button>
                 </div>
-                
+
                 <div class="project-card fade-in-up">
                     <div class="project-image">
                         <img src="img/SFL.png" alt="雲空幻想" onerror="this.parentElement.innerHTML='🎮'; this.parentElement.classList.add('emoji-fallback');">
                     </div>
                     <div class="project-title">雲空幻想</div>
-                    <div class="project-time">時間: 2014/10/1 ~ 2019/12/31 (約5年)</div>
+                    <div class="project-time">2014/10/01 ~ 2019/12/31（約 5 年）</div>
                     <div class="project-content">
-                        <strong>遊戲：</strong> Minecraft <br>
-                        <strong>伺服器內容：</strong> 生存、副本挑戰、野外生存系統。達成單日在線玩家最大 500 名(人數上限)。<br>
-                        <strong>項目內容：</strong> 總企劃、副本設計、活動企劃、怪物設計、插件開發 <br>
+                        <dl>
+                            <dt>遊戲</dt><dd>Minecraft</dd>
+                            <dt>規模</dt><dd>生存、副本、野外狩獵多分流，單日在線曾達 500 人滿載</dd>
+                            <dt>負責</dt><dd>總企劃、副本與怪物設計、活動企劃、插件開發</dd>
+                        </dl>
                     </div>
-                    <button class="detail-button" onclick="showProjectDetail('project1')">詳細</button>
+                    <button class="sfl-btn" onclick="showProjectDetail('project1')">詳細</button>
                 </div>
 
                 <div class="project-card fade-in-up">
                     <div class="project-image">
-                        <img src="img/tos.jpg" alt="SFL-RPG" onerror="this.parentElement.innerHTML='⚔️'; this.parentElement.classList.add('emoji-fallback');">
+                        <img src="img/tos.jpg" alt="斯特靈之心" onerror="this.parentElement.innerHTML='⚔️'; this.parentElement.classList.add('emoji-fallback');">
                     </div>
                     <div class="project-title">斯特靈之心</div>
-                    <div class="project-time">時間: 2015/04/10 ~ 2015/05/01</div>
+                    <div class="project-time">2015/04/10 ~ 2015/05/01</div>
                     <div class="project-content">
-                        <strong>遊戲：</strong> RPG遊戲製作大師 <br>
-                        <strong>遊戲內容：</strong> 神魔之塔粉絲向作品，關卡式劇情回合制日式RPG戰鬥，當年在巴哈姆特哈拉板榮獲精華文章評選<br>
-                        <strong>項目內容：</strong> 遊戲製作 <br>
+                        <dl>
+                            <dt>工具</dt><dd>RPG 製作大師</dd>
+                            <dt>內容</dt><dd>神魔之塔同人作品，關卡式回合制日式 RPG，獲巴哈姆特哈拉區精華文章</dd>
+                            <dt>負責</dt><dd>劇情、關卡、獨立製作</dd>
+                        </dl>
                     </div>
-                    <button class="detail-button" onclick="showProjectDetail('project5')">詳細</button>
+                    <button class="sfl-btn" onclick="showProjectDetail('project5')">詳細</button>
                 </div>
 
+            </div>
         </section>
     </main>
 
-    <!-- Modal -->
     <div id="projectModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle">項目詳細資訊</h2>
-                <p class="modal-subtitle" id="modalSubtitle">時間範圍與項目概述</p>
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p class="modal-subtitle" id="modalSubtitle"></p>
                 <button class="close-button" onclick="closeModal()">&times;</button>
             </div>
-            <div class="modal-body" id="modalBody">
-                <!-- 動態內容將在這裡插入 -->
-            </div>
+            <div class="modal-body" id="modalBody"></div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; <span id="footerYear"></span> 關於萊姆醬. All rights reserved.</p>
+        <p>&copy; <span id="footerYear"></span> 關於萊姆醬・<a href="https://sfl-rpg.com/" target="_blank" rel="noopener">SFL-RPG</a></p>
     </footer>
 
     <script>
-        // 項目配置（對應到不同的HTML文件）
         const projectConfig = {
-            project1: {
-                title: "雲空幻想",
-                subtitle: "2014/10/01~2019/12/31 (約5年)",
-                htmlFile: "project1-detail.html"
-            },
-            project2: {
-                title: "大型MMORPG伺服器",
-                subtitle: "2018/8/26~2019/1/31 (約5個月)",
-                htmlFile: "project2-detail.html"
-            },
-            project3: {
-                title: "SFL-RPG",
-                subtitle: "2025/05/19~Ongoing",
-                htmlFile: "project3-detail.html"
-            },
-            project4: {
-                title: "Discord-Bot",
-                subtitle: "2025/05/06~Ongoing",
-                htmlFile: "project4-detail.html"
-            },
-            project5: {
-                title: "斯特靈之心",
-                subtitle: "2015/04/15~2015/05/01",
-                htmlFile: "project5-detail.html"
-            }
+            project1: { title: "雲空幻想", subtitle: "2014/10/01 ~ 2019/12/31（約 5 年）", htmlFile: "project1-detail.html" },
+            project2: { title: "大型 MMORPG 伺服器", subtitle: "2018/08/26 ~ 2019/01/31（約 5 個月）", htmlFile: "project2-detail.html" },
+            project3: { title: "SFL-RPG", subtitle: "2025/05/19 ~ 營運中", htmlFile: "project3-detail.html" },
+            project4: { title: "Discord Bot", subtitle: "2025/05/06 ~ 運作中", htmlFile: "project4-detail.html" },
+            project5: { title: "斯特靈之心", subtitle: "2015/04/10 ~ 2015/05/01", htmlFile: "project5-detail.html" }
         };
 
-        // 動態載入專案詳細頁面的 CSS
-        function loadProjectDetailCSS() {
-            // 檢查是否已經載入過 project-detail.css
-            const existingLink = document.querySelector('link[href="css/project-detail.css"]');
-            if (!existingLink) {
-                const link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = 'css/project-detail.css';
-                document.head.appendChild(link);
-            }
-        }
-        
-        // 移除專案詳細頁面的 CSS
-        function removeProjectDetailCSS() {
-            const existingLink = document.querySelector('link[href="css/project-detail.css"]');
-            if (existingLink) {
-                existingLink.remove();
-            }
-        }
+        const modal = document.getElementById('projectModal');
+        const modalBody = document.getElementById('modalBody');
 
-
-        // 動態載入HTML內容
         async function loadProjectContent(htmlFile) {
             try {
                 const response = await fetch(htmlFile);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const content = await response.text();
-                
-                // 解析HTML並提取body內容
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(content, 'text/html');
-                const bodyContent = doc.querySelector('.detail-container');
-                
-                if (bodyContent) {
-                    // 移除返回按鈕和標題（因為模態框已有標題）
-                    const backButton = bodyContent.querySelector('.back-button');
-                    const header = bodyContent.querySelector('.detail-header');
-                    if (backButton) backButton.remove();
-                    if (header) header.remove();
-                    
-                    return bodyContent.innerHTML;
-                } else {
-                    return content;
-                }
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const doc = new DOMParser().parseFromString(await response.text(), 'text/html');
+                const container = doc.querySelector('.detail-container');
+                if (!container) return doc.body.innerHTML;
+                container.querySelector('.back-button')?.remove();
+                container.querySelector('.detail-header')?.remove();
+                return container.innerHTML;
             } catch (error) {
-                console.error('載入項目內容失敗:', error);
                 return `
                     <div class="error-message">
-                        <h3>⚠️ 載入失敗</h3>
-                        <p>無法載入項目詳細內容，請稍後再試。</p>
-                        <p><small>錯誤訊息: ${error.message}</small></p>
-                        <br>
-                        <p><strong>開發提示:</strong></p>
-                        <p>請確保在同一個目錄下創建 <code>${htmlFile}</code> 文件，並引用 <code>project-detail.css</code></p>
-                        <p>或者您可以直接訪問：<a href="${htmlFile}" target="_blank" style="color: #4ecdc4;">${htmlFile}</a></p>
+                        <h3>載入失敗</h3>
+                        <p>暫時無法載入內容，請稍後再試，或直接開啟 <a href="${htmlFile}" target="_blank" style="color:#00ffff;">${htmlFile}</a></p>
                     </div>
                 `;
             }
         }
 
-        // 顯示載入中狀態
-        function showLoadingState() {
-            return `
-                <div class="loading-container">
-                    <div class="loading-spinner"></div>
-                    <p>載入中...</p>
-                </div>
-            `;
-        }
-
-        // 顯示項目詳細信息（更新版）
         async function showProjectDetail(projectId) {
             const project = projectConfig[projectId];
-            if (!project) {
-                console.error('找不到項目配置:', projectId);
-                return;
-            }
-        
-            // 載入項目詳細頁面的 CSS
-            loadProjectDetailCSS();
-        
-            // 設置標題和副標題
+            if (!project) return;
+
             document.getElementById('modalTitle').textContent = project.title;
             document.getElementById('modalSubtitle').textContent = project.subtitle;
-            
-            // 顯示載入狀態
-            document.getElementById('modalBody').innerHTML = showLoadingState();
-            
-            // 顯示模態框
-            const modal = document.getElementById('projectModal');
+            modalBody.innerHTML = '<div class="loading-container"><div class="loading-spinner"></div><p>載入中...</p></div>';
+            modalBody.scrollTop = 0;
             modal.classList.add('show');
             document.body.style.overflow = 'hidden';
-        
-            // 動態載入內容
-            const content = await loadProjectContent(project.htmlFile);
-            document.getElementById('modalBody').innerHTML = content;
+
+            modalBody.innerHTML = await loadProjectContent(project.htmlFile);
         }
 
-        // 關閉模態框
         function closeModal() {
-            const modal = document.getElementById('projectModal');
             modal.classList.remove('show');
-            document.body.style.overflow = 'auto';
-            
-            // 移除項目詳細頁面的 CSS，避免與主頁樣式衝突
-            removeProjectDetailCSS();
+            modalBody.innerHTML = '';
+            document.body.style.overflow = '';
         }
 
-        // 點擊背景關閉模態框
-        document.getElementById('projectModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+        modal.addEventListener('click', e => {
+            if (e.target === modal) closeModal();
         });
 
-        // ESC鍵關閉模態框
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeModal();
         });
 
-        // Smooth scrolling animation on load
-        window.addEventListener('load', function() {
-            const elements = document.querySelectorAll('.fade-in-up');
-            elements.forEach((element, index) => {
-                setTimeout(() => {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }, index * 200);
+        const revealObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
             });
-        });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.fade-in-up').forEach(el => revealObserver.observe(el));
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(0, 0, 0, 0.9)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.1)';
-            }
-        });
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
 
-        // Add hover effects to project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Animate floating elements
         function createFloatingElement() {
             const element = document.createElement('div');
             element.className = 'floating-element';
             element.style.left = Math.random() * 100 + '%';
-            element.style.top = '-20px';
-            element.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            element.style.top = Math.random() * 100 + '%';
+            element.style.animationDuration = (Math.random() * 3 + 5) + 's';
             document.querySelector('.floating-elements').appendChild(element);
-
-            setTimeout(() => {
-                element.remove();
-            }, 6000);
+            setTimeout(() => element.remove(), 8000);
         }
-
-        // Create floating elements periodically
         setInterval(createFloatingElement, 2000);
 
-        // Footer 年份自動更新
         document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-        // 下拉選單點擊觸發（手機友善）
         document.querySelectorAll('.nav-dropdown .nav-link').forEach(link => {
             link.addEventListener('click', e => {
                 e.stopPropagation();
@@ -447,7 +421,6 @@
             document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
         });
 
-        // 禁止右鍵與長按複製
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('selectstart', e => e.preventDefault());
         document.addEventListener('copy', e => e.preventDefault());
