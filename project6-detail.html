@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" />
+    <title>SFL-Arena - 萊姆醬</title>
+    <link rel="stylesheet" href="css/project-detail.css?v=2026110101">
+</head>
+<body class="detail-page">
+    <div class="detail-container">
+        <div class="detail-header">
+            <h1 class="detail-title">SFL-Arena</h1>
+            <p class="detail-subtitle">2026/11/02 ~ 2026/11/07</p>
+            <a href="index.html" class="back-button">← 返回主頁</a>
+        </div>
+
+        <div class="content-section">
+            <p class="lead">從 SFL-RPG 衍生出來的 Q 版即時動作小品。從 22 位角色中挑一位進入競技場，打倒一波波怪物，升級時三選一挑強化卡，一路爬到第 150 層；也可以直接挑戰連戰 30 場 Boss 的 BOSS RUSH。登場角色與 Boss 大多改編自 SFL-RPG 的夥伴與劇情人物，打開瀏覽器就能玩，不用安裝或註冊。</p>
+            <div class="d-stats">
+                <div class="d-stat"><b>22 位</b><span>可選角色</span></div>
+                <div class="d-stat"><b>30 場</b><span>Boss 戰</span></div>
+                <div class="d-stat"><b>150 層</b><span>爬塔模式</span></div>
+                <div class="d-stat"><b>130 級</b><span>等級上限</span></div>
+                <div class="d-stat"><b>28 種</b><span>強化卡</span></div>
+                <div class="d-stat"><b>6 天</b><span>製作期間</span></div>
+                <div class="d-stat"><b>60,000+</b><span>行程式碼</span></div>
+                <div class="d-stat"><b>370+</b><span>Commits</span></div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3 class="block-title">遊戲內容</h3>
+            <ul class="content-list">
+                <li><strong>爬塔模式：</strong>每 5 層一隻 Boss，中間穿插菁英波與重裝波。每位角色各自記住爬到的樓層、等級與強化卡，下次從同一層繼續。</li>
+                <li><strong>BOSS RUSH：</strong>起手先拿三張強化，接著連打 30 場 Boss，記錄擊破數與全破時間。</li>
+                <li><strong>角色：</strong>每位角色有自己的武器、Q／E 技能與被動。標示【羈絆】的被動改編自 SFL-RPG 的夥伴羈絆能力，把原本的回合制數值改寫成即時戰鬥的版本。</li>
+                <li><strong>成長：</strong>擊殺怪物累積經驗，升級時從三張強化卡挑一張，搭配角色被動組出自己的打法，等級上限 130 級。</li>
+            </ul>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="img/arena/arena_title.jpg" alt="標題畫面" loading="lazy">
+                    <div class="image-caption">標題畫面</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/arena/arena_select.jpg" alt="選擇角色" loading="lazy">
+                    <div class="image-caption">選擇角色</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/arena/arena_battle.jpg" alt="一般波次戰鬥" loading="lazy">
+                    <div class="image-caption">一般波次</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/arena/arena_levelup.jpg" alt="升級選擇強化卡" loading="lazy">
+                    <div class="image-caption">升級選卡</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3 class="block-title">Boss 戰</h3>
+            <p>Boss 大多取自 SFL-RPG 的劇情人物，像是帝國大臣迪菲爾、造物主時空萬象，第 150 層則是寰宇本源科詩莫斯。招式依照原作設定設計，有彈幕、場地機制與半血變身，每隻 Boss 也配上 SFL-RPG 本家的專屬 BGM。</p>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="img/arena/arena_boss1.jpg" alt="世界先生 Boss 戰" loading="lazy">
+                    <div class="image-caption">第 120 層 世界先生</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/arena/arena_boss2.jpg" alt="卡厄斯 Boss 戰" loading="lazy">
+                    <div class="image-caption">第 135 層 卡厄斯</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3 class="block-title">技術架構</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>引擎</h4>
+                    <p>Three.js + Vite，純前端靜態網站，手機與電腦皆可遊玩。</p>
+                </div>
+                <div class="tech-item">
+                    <h4>建模</h4>
+                    <p>不使用外部 3D 模型，角色、怪物與場景都由程式生成，角色採骨骼動畫與卡通渲染。</p>
+                </div>
+                <div class="tech-item">
+                    <h4>存檔</h4>
+                    <p>沒有後端與資料庫，紀錄存在瀏覽器，可匯出加密存檔帶到其他裝置。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="note-section">
+                <h3>📌 補充說明</h3>
+                <p>SFL-Arena 是 SFL-RPG 的衍生小品，做完即收工，不另外營運，主力作品仍是 SFL-RPG。本專案為非營利性質，僅作為個人學習與社群交流之用，所有設計與開發皆不涉及商業或收費行為。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

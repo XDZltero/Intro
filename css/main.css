@@ -940,6 +940,68 @@ nav {
     gap: 14px;
 }
 
+/* SFL-Arena */
+.arena-section {
+    padding: 40px 0 30px;
+}
+
+.arena-showcase {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 34px;
+    align-items: center;
+    padding: 28px;
+}
+
+.arena-shot {
+    display: block;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+    transition: all 0.3s ease;
+}
+
+.arena-shot:hover {
+    border-color: rgba(0, 255, 255, 0.6);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45), 0 0 18px rgba(0, 255, 255, 0.2);
+}
+
+.arena-shot img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.arena-shot:hover img {
+    transform: scale(1.04);
+}
+
+.arena-logo {
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: 0.06em;
+    color: var(--accent-color);
+    text-shadow: 0 0 16px rgba(0, 255, 255, 0.55);
+}
+
+.arena-body .sfl-tagline {
+    margin: 6px 0 18px;
+}
+
+.arena-body .sfl-desc {
+    margin-bottom: 24px;
+}
+
+.sfl-meta span.done {
+    border-color: rgba(255, 217, 61, 0.55);
+    color: var(--subtitle-color);
+    background: rgba(255, 217, 61, 0.08);
+}
+
 /* Projects */
 .projects-section {
     padding: 70px 0 40px;
@@ -1452,6 +1514,16 @@ html, body, .modal-body {
 
     .sfl-actions .sfl-btn {
         flex: 1 1 100%;
+    }
+
+    .arena-showcase {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 18px;
+    }
+
+    .arena-logo {
+        font-size: 1.9rem;
     }
 
     .projects-grid {
