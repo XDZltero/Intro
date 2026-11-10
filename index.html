@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="萊姆醬（XD_Zltero）：後端工程師、遊戲營運者，獨立開發營運網頁遊戲 SFL-RPG。">
     <title>關於 萊姆醬</title>
-    <link rel="stylesheet" href="css/main.css?v=2026110101">
+    <link rel="stylesheet" href="css/main.css?v=2026111001">
     <link rel="stylesheet" href="css/project-detail.css?v=2026110101">
 </head>
 <body>
@@ -219,6 +219,32 @@
             </div>
         </section>
 
+        <section class="arena-section" id="arena">
+            <h2 class="section-title">衍生小品<small>SIDE PROJECT</small></h2>
+
+            <div class="arena-showcase glass-panel fade-in-up">
+                <a class="arena-shot" href="https://arena.sfl-rpg.com/" target="_blank" rel="noopener">
+                    <img src="img/arena/arena_cover.jpg" alt="SFL-Arena 遊戲畫面" loading="lazy">
+                </a>
+
+                <div class="arena-body">
+                    <div class="arena-logo">SFL-Arena</div>
+                    <div class="sfl-tagline">SFL-RPG 競技場</div>
+                    <div class="sfl-meta">
+                        <span class="done">已完成</span>
+                        <span>2026/11 製作</span>
+                        <span>獨立製作</span>
+                        <span>免安裝・手機電腦皆可</span>
+                    </div>
+                    <p class="sfl-desc">用 Three.js 做的 Q 版即時動作小遊戲。挑一位 SFL-RPG 的夥伴進入競技場，擊退一波波怪物、升級時挑選強化卡，挑戰 150 層爬塔與 30 場 BOSS RUSH。角色、怪物與場景全部由程式生成，沒有使用外部 3D 模型。</p>
+                    <div class="sfl-actions">
+                        <a href="https://arena.sfl-rpg.com/" class="sfl-btn gold" target="_blank" rel="noopener">開始遊玩</a>
+                        <button class="sfl-btn" onclick="showProjectDetail('project6')">開發細節</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="projects-section" id="projects">
             <h2 class="section-title">營運經歷<small>PROJECTS</small></h2>
             <div class="projects-grid">
@@ -238,6 +264,22 @@
                         </dl>
                     </div>
                     <button class="sfl-btn" onclick="showProjectDetail('project3')">詳細</button>
+                </div>
+
+                <div class="project-card fade-in-up">
+                    <div class="project-image cover">
+                        <img src="img/arena/arena_cover.jpg" alt="SFL-Arena" onerror="this.parentElement.innerHTML='🏟️'; this.parentElement.classList.add('emoji-fallback');">
+                    </div>
+                    <div class="project-title">SFL-Arena</div>
+                    <div class="project-time">2026/11/02 ~ 2026/11/07</div>
+                    <div class="project-content">
+                        <dl>
+                            <dt>類型</dt><dd>Q 版即時動作肉鴿網頁遊戲</dd>
+                            <dt>內容</dt><dd>SFL-RPG 衍生小品，22 位角色、150 層爬塔、BOSS RUSH</dd>
+                            <dt>負責</dt><dd>獨立製作：企劃、角色與 Boss 設計、Three.js 開發</dd>
+                        </dl>
+                    </div>
+                    <button class="sfl-btn" onclick="showProjectDetail('project6')">詳細</button>
                 </div>
 
                 <div class="project-card fade-in-up">
@@ -329,7 +371,8 @@
             project2: { title: "大型 MMORPG 伺服器", subtitle: "2018/08/26 ~ 2019/01/31（約 5 個月）", htmlFile: "project2-detail.html" },
             project3: { title: "SFL-RPG", subtitle: "2025/05/19 ~ 營運中", htmlFile: "project3-detail.html" },
             project4: { title: "Discord Bot", subtitle: "2025/05/06 ~ 運作中", htmlFile: "project4-detail.html" },
-            project5: { title: "斯特靈之心", subtitle: "2015/04/10 ~ 2015/05/01", htmlFile: "project5-detail.html" }
+            project5: { title: "斯特靈之心", subtitle: "2015/04/10 ~ 2015/05/01", htmlFile: "project5-detail.html" },
+            project6: { title: "SFL-Arena", subtitle: "2026/11/02 ~ 2026/11/07", htmlFile: "project6-detail.html" }
         };
 
         const modal = document.getElementById('projectModal');
